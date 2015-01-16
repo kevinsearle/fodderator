@@ -1,15 +1,37 @@
 /**
- * Permit all players to create new 0-level characters. Created characters will be
- * visible in all journals and controllable by the player who created it.
+ * Generates new 0-level characters. See the README.md file for instructions.
  *
  * Syntax: !fodder Character Name
  * `Character Name' has no limitations, and will be used for the character's
  * name in the journal.
  */
-/*var Fodder = Fodder || {};*/
+
+/**
+ * Configuration
+ *
+ * Configure these to match your actual table names or vice-versa.
+ * RaceTable is optional (e.g. used in rolling Crawling Under A Broken Moon characters)
+ * and must be uncommented to use.
+ */
+//var RaceTable = 'Races';
+var OccupationTable = 'Occupations';
+var LuckTable = 'Birth-Augur-Lucky-Roll';
+var EquipmentTable = 'Equipment';
+
+var Fodder = Fodder || {};
 
 on('chat:message', function(msg) {
-    if (msg.type == 'api' && msg.content.indexOf('!fodder ') != -1) {
+    // Exit if not an api command
+    if (msg.type != "api") {
+        return;
+    }
+
+    if (msg.content.indexOf('!fodder ') != -1) {
+        Fodder.Generate(msg);
+    }
+});
+
+Fodder.Generate = function(msg) {
         var name = msg.content.substring(8);
         var player = msg.who;
         var character = createObj('character', {
@@ -26,62 +48,76 @@ on('chat:message', function(msg) {
         };
         var rollHP = function(staminaMod) {
             return randomInteger(4) + staminaMod;
-        }
+        };
         var rollCoin = function() {
             return randomInteger(12) + randomInteger(12) + randomInteger(12) + randomInteger(12) + randomInteger(12);
-        }
+        };
         var calcMod = function(ability) {
             return Math.floor( (0.0009 * ability * ability * ability) + (-0.029 * ability * ability) + (0.6 * ability) +0.41) -4;
         };
-        var rollRace = function() {
-            sendChat("API", "/roll 1t[Races]", function(result) {
-                var content = JSON.parse(result[0].content);
-                createObj('attribute', {
-                    name: 'Race',
-                    current: content.rolls[0].results[0].tableItem.name,
-                    _characterid: character.id
+
+        if (typeof RaceTable != 'undefined') {
+            var rollRace = function() {
+                sendChat("API", "/roll 1t["+RaceTable+"]", function(result) {
+                    var content = JSON.parse(result[0].content);
+                    createObj('attribute', {
+                        name: 'Race',
+                        current: content.rolls[0].results[0].tableItem.name,
+                        _characterid: character.id
+                    });
                 });
-            });
+            }
         }
-        var rollOccupation = function() {
-            sendChat("API", "/roll 1t[Occupations]", function(result) {
-                var content = JSON.parse(result[0].content);
-                var values = content.rolls[0].results[0].tableItem.name.split(':');
-                createObj('attribute', {
-                    name: 'Occupation',
-                    current: values[0],
-                    _characterid: character.id
+
+        if (typeof OccupationTable != 'undefined') {
+            var rollOccupation = function() {
+                sendChat("API", "/roll 1t["+OccupationTable+"]", function(result) {
+                    var content = JSON.parse(result[0].content);
+                    var values = content.rolls[0].results[0].tableItem.name.split(':');
+                    createObj('attribute', {
+                        name: 'Occupation',
+                        current: values[0],
+                        _characterid: character.id
+                    });
+                    if (typeof EquipmentTable != 'undefined') {
+                        rollEquipment(values[1], values[2]);
+                    }
                 });
-                rollEquipment(values[1], values[2]);
-            });
+            };
         }
-        var rollLuck = function() {
-            sendChat("API", "/roll 1t[Birth-Augur-Lucky-Roll]", function (result) {
-                var content = JSON.parse(result[0].content);
-                var values = content.rolls[0].results[0].tableItem.name.split(':');
-                createObj('attribute', {
-                    name: 'BirthAugur',
-                    current: values[0],
-                    _characterid: character.id
+
+        if (typeof LuckTable != 'undefined') {
+            var rollLuck = function () {
+                sendChat("API", "/roll 1t[" + LuckTable + "]", function (result) {
+                    var content = JSON.parse(result[0].content);
+                    var values = content.rolls[0].results[0].tableItem.name.split(':');
+                    createObj('attribute', {
+                        name: 'BirthAugur',
+                        current: values[0],
+                        _characterid: character.id
+                    });
+                    createObj('attribute', {
+                        name: 'LuckyRoll',
+                        current: values[1],
+                        _characterid: character.id
+                    });
                 });
-                createObj('attribute', {
-                    name: 'LuckyRoll',
-                    current: values[1],
-                    _characterid: character.id
+            };
+        }
+
+        if (typeof EquipmentTable != 'undefined') {
+            var rollEquipment = function (item_1, item_2) {
+                sendChat("API", "/roll 1t[" + EquipmentTable + "]", function (result) {
+                    var content = JSON.parse(result[0].content);
+                    var item_3 = content.rolls[0].results[0].tableItem.name;
+                    createObj('attribute', {
+                        name: 'Equipment',
+                        current: item_1 + "\n" + item_2 + "\n" + item_3,
+                        _characterid: character.id
+                    });
                 });
-            });
-        };
-        var rollEquipment = function (item_1, item_2) {
-            sendChat("API", "/roll 1t[Equipment]", function(result) {
-                var content = JSON.parse(result[0].content);
-                var item_3 = content.rolls[0].results[0].tableItem.name;
-                createObj('attribute', {
-                    name: 'Equipment',
-                    current: item_1 + "\n" + item_2 + "\n" + item_3,
-                    _characterid: character.id
-                });
-            });
-        };
+            };
+        }
 
         /* Roll abilities */
         var strength = rollAbility();
@@ -182,11 +218,15 @@ on('chat:message', function(msg) {
             _characterid: character.id
         });
 
-        rollLuck();
-        rollRace();
-        rollOccupation();
+        if (typeof LuckTable != 'undefined') {
+            rollLuck();
+        }
+        if (typeof RaceTable != 'undefined') {
+            rollRace();
+        }
+        if (typeof OccupationTable != 'undefined') {
+            rollOccupation();
+        }
 
         sendChat(player, "/me turned it up to 11 and summoned a character named \""+name+"\"!");
-    }
-
-});
+};
