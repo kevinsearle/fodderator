@@ -1,0 +1,31 @@
+!import-table --Birth-Augur-Lucky-Roll --show
+!import-table-item --Birth-Augur-Lucky-Roll --Harsh winter:All attack rolls --1 --
+!import-table-item --Birth-Augur-Lucky-Roll --The Bull:Melee attack rolls --1 --
+!import-table-item --Birth-Augur-Lucky-Roll --Fortunate Date:Missile fire attack rolls --1 --
+!import-table-item --Birth-Augur-Lucky-Roll --Raised by wolves:Unarmed attack rolls --1 --
+!import-table-item --Birth-Augur-Lucky-Roll --Conceived on horseback:Mounted attack rolls --1 --
+!import-table-item --Birth-Augur-Lucky-Roll --Born on the battlefield:Damage rolls --1 --
+!import-table-item --Birth-Augur-Lucky-Roll --Path of the bear:Melee damage rolls --1 --
+!import-table-item --Birth-Augur-Lucky-Roll --Hawkeye:Missile fire damage rolls --1 --
+!import-table-item --Birth-Augur-Lucky-Roll --Pack hunter:Attack and damage rolls for 0-level starting weapon --1 --
+!import-table-item --Birth-Augur-Lucky-Roll --Born under the loom:Skill checks (including thief skills) --1 --
+!import-table-item --Birth-Augur-Lucky-Roll --Fox's cunning:Find / disable traps --1 --
+!import-table-item --Birth-Augur-Lucky-Roll --Four-leafed clover:Find secret doors --1 --
+!import-table-item --Birth-Augur-Lucky-Roll --Seventh son:Spell checks --1 --
+!import-table-item --Birth-Augur-Lucky-Roll --The raging storm:Spell damage --1 --
+!import-table-item --Birth-Augur-Lucky-Roll --Righteous heart:Turn unholy checks --1 --
+!import-table-item --Birth-Augur-Lucky-Roll --Survived the plague:Magical Healing --1 --
+!import-table-item --Birth-Augur-Lucky-Roll --Lucky sign:Saving throws --1 --
+!import-table-item --Birth-Augur-Lucky-Roll --Guardian angel:Saving throws to escape traps --1 --
+!import-table-item --Birth-Augur-Lucky-Roll --Survived a spider bite:Saving throws against poison --1 --
+!import-table-item --Birth-Augur-Lucky-Roll --Struck by lightning:Reflex saving throws --1 --
+!import-table-item --Birth-Augur-Lucky-Roll --Lived through famine:Fortitude saving throws --1 --
+!import-table-item --Birth-Augur-Lucky-Roll --Resisted temptation:Willpower saving throws --1 --
+!import-table-item --Birth-Augur-Lucky-Roll --Charmed house:Armor class --1 --
+!import-table-item --Birth-Augur-Lucky-Roll --Speed of the cobra:Initiative --1 --
+!import-table-item --Birth-Augur-Lucky-Roll --Bountiful harvest:Hit points (applies at each level) --1 --
+!import-table-item --Birth-Augur-Lucky-Roll --Warrior's arm:Critical hit tables --1 --
+!import-table-item --Birth-Augur-Lucky-Roll --Unholy house:Corruption rolls --1 --
+!import-table-item --Birth-Augur-Lucky-Roll --The Broken Star:Fumbles --1 --
+!import-table-item --Birth-Augur-Lucky-Roll --Birdsong:Number of languages --1 --
+!import-table-item --Birth-Augur-Lucky-Roll --Wild child:Speed (each +1 / -1 = +5' / -5' speed) --1 --
