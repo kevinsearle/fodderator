@@ -154,7 +154,7 @@ Fodder.Generate = function(msg) {
         });
         createObj('attribute', {
             name: 'Level',
-            current: '1',
+            current: '0',
             max: '10',
             _characterid: character.id
         });
