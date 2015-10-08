@@ -1,9 +1,7 @@
 /**
  * Generates new 0-level characters. See the README.md file for instructions.
  *
- * Syntax: !fodder Character Name
- * `Character Name' has no limitations, and will be used for the character's
- * name in the journal.
+ * Syntax: !fodder
  */
 
 /**
@@ -27,14 +25,14 @@ on('chat:message', function(msg) {
         return;
     }
 
-    if (msg.content.indexOf('!fodder ') != -1) {
+    if (msg.content.indexOf('!fodder') != -1) {
         Fodder.Generate(msg);
     }
 });
 
 Fodder.Generate = function(msg) {
-        var name = msg.content.substring(8);
         var player = msg.who;
+        var name = msg.who + Date.now();
         var character = createObj('character', {
             avatar: defaultAvatar,
             name: name,
