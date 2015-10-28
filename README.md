@@ -25,23 +25,12 @@ Examples:
 It's suggested that a Judge create a macro that the players can then click on or run. You can easily specify your campaign type this way.
 
 ### Rollable Tables
-These are used to randomly select occupations, starting equipment, birth augur and optionally races. Just copy and paste the contents of the files in the *tables* folder into the chat on Roll20. You won't see a message or response from Roll20. Check to see if it exists in Rollable Tables and try not to do this multiple times per table. I've noticed some odd behavior with Roll20 trying to re-insert table data.
+These are used to randomly select occupations, starting equipment, birth augur and optionally races. Just copy and paste the contents of the files that you want from the *tables* folder into the chat on Roll20. You won't see a message or response from Roll20. At a minimum, the core tables must be entered: Occupations-Core, Birth-Augur-Lucky-Roll-Core, and Equipment-Core.
 
-In order for a table to be used in Fodderator, it must be named exactly as the files (without the .txt extension).
-
-Examples:
-
-* Occupations-Core
-* Occupations-Crawl
-* Birth-Augur-Lucky-Roll-Core
-* Equipment-CUaBM
-* Races-CUaBM
-* etc.
-
-If a table doesn't exist with the correct name, that part of the character isn't created. For example, if you don't populate a table called Occupations, characters you create with the script won't include an occupation.
+If a table doesn't exist with the correct name, that part of the character isn't created. For example, if you don't import an equipment table, characters you create with the script won't include results from an equipment roll.
 
 ### Setting up a macro for your players
-I've found the easiest way to get your players rolling up characters the fastest is to create a macro in Roll20. All they need to do after that is click the button and give the character a name.
+I've found the easiest and fastest way to get your players rolling up characters is to create a macro in Roll20. All they need to do after that is click the button and give the character a name.
 
 Example of setting a macro up for the core rules:
 
