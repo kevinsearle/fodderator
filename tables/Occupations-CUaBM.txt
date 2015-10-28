@@ -1,0 +1,31 @@
+!import-table --Occupations-CUaBM --hide
+!import-table-item --Occupations-CUaBM --Accountant:Big Ledger (1d3):Solar calculator --1 --
+!import-table-item --Occupations-CUaBM --Armorer:Sledge Hammer (1d7, 2-handed):Retread armor (as studded) --1 --
+!import-table-item --Occupations-CUaBM --Biker:Length of Chain (1d5):Leather Jacket (as Leather) --1 --
+!import-table-item --Occupations-CUaBM --Brewer:Bung Hammer (1d4):1d3 gallons of booze --1 --
+!import-table-item --Occupations-CUaBM --Carpenter:Claw Hammer (1d5):Bag of 2d30 nails --1 --
+!import-table-item --Occupations-CUaBM --Chemist:1d6 vials of mild acid (1d4):1d3 Molotove cocktails (Era 3) --1 --
+!import-table-item --Occupations-CUaBM --Cook:Cleaver (1d5):3d4 trial rations --1 --
+!import-table-item --Occupations-CUaBM --Electrician:Screwdriver (1d3):Bag of wires and bits --1 --
+!import-table-item --Occupations-CUaBM --Farmer:Hoe (1d5):1 Farm animal --1 --
+!import-table-item --Occupations-CUaBM --Ganger:Slingshot and bag of bearings (1d4):1 bottle of good booze --1 --
+!import-table-item --Occupations-CUaBM --Guard:Spear (1d6):Leather armor --1 --
+!import-table-item --Occupations-CUaBM --Gunsmith:rebuilt revolver (1d6, range 50ft):3d4 good bullets --1 --
+!import-table-item --Occupations-CUaBM --Handyman:Large tool (1d4):Tool belt with 1d3+1 tools --1 --
+!import-table-item --Occupations-CUaBM --Historian:Heavy book (1d3):Trivia (+3 to checks) --1 --
+!import-table-item --Occupations-CUaBM --Janitor:Large mop (1d3):5 gal bucket and rags --1 --
+!import-table-item --Occupations-CUaBM --Livestock Rancher:Crook staff (1d5):1d3 Farm animals --1 --
+!import-table-item --Occupations-CUaBM --Mechanic:Tire iron (1d6):1d3 gallons of used oil --1 --
+!import-table-item --Occupations-CUaBM --Medic:Scalpel (1d4):First aid kit --1 --
+!import-table-item --Occupations-CUaBM --Merchant:Big Maglite (1d4) (batteries charged):1d3 rolls on Equipment table --1 --
+!import-table-item --Occupations-CUaBM --Miner:Pickaxe (1d5):Filtered mask --1 --
+!import-table-item --Occupations-CUaBM --Nurse:Scalpel (1d4):Stethoscope --1 --
+!import-table-item --Occupations-CUaBM --Peddler:Iron skillet (1d5):1d3 rolls on Equipment table --1 --
+!import-table-item --Occupations-CUaBM --Pharmacist:Knife (1d3):2d3 bottles of drugs --1 --
+!import-table-item --Occupations-CUaBM --Plumber:Wrench (1d4):2d3 copper pipes --1 --
+!import-table-item --Occupations-CUaBM --Researcher:Heavy book (1d3):1d6 more books --1 --
+!import-table-item --Occupations-CUaBM --Scavenger:Crowbar (1d6):1d3 rolls on Equipment table --1 --
+!import-table-item --Occupations-CUaBM --Scientist:Bunsen burner & propane tank (1d3):rubber gloves and goggles --1 --
+!import-table-item --Occupations-CUaBM --Scout:Crossbow and 3d4 bolts:Compass --1 --
+!import-table-item --Occupations-CUaBM --Soldier:Bolt action rifle w/bayonet (1d10, 120ft) (Bayonet 1d6):2d4 bullets --1 --
+!import-table-item --Occupations-CUaBM --Wanderer:big walking stick (1d5):Large backpack --1 --

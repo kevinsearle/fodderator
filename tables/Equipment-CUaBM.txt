@@ -1,0 +1,50 @@
+!import-table --Equipment-CUaBM --hide
+!import-table-item --Equipment-CUaBM --3 Plasticware Containers --1 --
+!import-table-item --Equipment-CUaBM --4 Firestarter Bricks --1 --
+!import-table-item --Equipment-CUaBM --20 Resealable Plastic Bags --1 --
+!import-table-item --Equipment-CUaBM --Backpack --1 --
+!import-table-item --Equipment-CUaBM --Big Box of Crayons --1 --
+!import-table-item --Equipment-CUaBM --Bottle of Lighter Fluid --1 --
+!import-table-item --Equipment-CUaBM --Camping Trowel --1 --
+!import-table-item --Equipment-CUaBM --Can Opener --1 --
+!import-table-item --Equipment-CUaBM --Canteen --1 --
+!import-table-item --Equipment-CUaBM --Cast Iron Dutch Oven --1 --
+!import-table-item --Equipment-CUaBM --Chain, 10' --1 --
+!import-table-item --Equipment-CUaBM --Chalk, 1 piece --1 --
+!import-table-item --Equipment-CUaBM --Chest, empty --1 --
+!import-table-item --Equipment-CUaBM --Cintronella Candle --1 --
+!import-table-item --Equipment-CUaBM --Cooler, 12 can size --1 --
+!import-table-item --Equipment-CUaBM --Crowbar --1 --
+!import-table-item --Equipment-CUaBM --Easy Reach Grabber --1 --
+!import-table-item --Equipment-CUaBM --Fire Extinguisher (charged) --1 --
+!import-table-item --Equipment-CUaBM --Fishing Waders --1 --
+!import-table-item --Equipment-CUaBM --Gas Can (1 gallon) --1 --
+!import-table-item --Equipment-CUaBM --Glowstick --1 --
+!import-table-item --Equipment-CUaBM --Grappling Hook --1 --
+!import-table-item --Equipment-CUaBM --Hand-Crank Flashlight --1 --
+!import-table-item --Equipment-CUaBM --Holy Symbol --1 --
+!import-table-item --Equipment-CUaBM --Holy Water, 1 vial --1 --
+!import-table-item --Equipment-CUaBM --Insulated Thermos --1 --
+!import-table-item --Equipment-CUaBM --Iron Spike --1 --
+!import-table-item --Equipment-CUaBM --Kitchen Shears --1 --
+!import-table-item --Equipment-CUaBM --Lantern --1 --
+!import-table-item --Equipment-CUaBM --Leatherman Multi-Tool --1 --
+!import-table-item --Equipment-CUaBM --Metal Tongs --1 --
+!import-table-item --Equipment-CUaBM --Mirror, Hand-sized --1 --
+!import-table-item --Equipment-CUaBM --Nylon Rope, 50' --1 --
+!import-table-item --Equipment-CUaBM --Oil, 1 flask* --1 --
+!import-table-item --Equipment-CUaBM --Pocket Fisherman --1 --
+!import-table-item --Equipment-CUaBM --Poker Set with Chips --1 --
+!import-table-item --Equipment-CUaBM --Pole, 10' --1 --
+!import-table-item --Equipment-CUaBM --Rations, per day --1 --
+!import-table-item --Equipment-CUaBM --Sack, Large --1 --
+!import-table-item --Equipment-CUaBM --Sack, Small --1 --
+!import-table-item --Equipment-CUaBM --Small Hammer (1d3) --1 --
+!import-table-item --Equipment-CUaBM --Small Socket Wrench Set --1 --
+!import-table-item --Equipment-CUaBM --Solar Wristwatch --1 --
+!import-table-item --Equipment-CUaBM --Thermal Sleeping Bag --1 --
+!import-table-item --Equipment-CUaBM --Thieve's Tools --1 --
+!import-table-item --Equipment-CUaBM --Umbrella --1 --
+!import-table-item --Equipment-CUaBM --Utility Knife (1d3) --1 --
+!import-table-item --Equipment-CUaBM --Water Kettle --1 --
+!import-table-item --Equipment-CUaBM --Zippo Lighter with Lighter Fluid --1 --

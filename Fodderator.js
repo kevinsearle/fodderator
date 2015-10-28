@@ -1,141 +1,138 @@
 /**
- * Generates new 0-level characters. See the README.md file for instructions.
+ * Generates new 0-level characters. See the README.md file for detailed
+ * setup instructions.
  *
- * Syntax: !fodder
+ * Syntax: !fodder option
+ *
+ * option determines which set of rollable tables will be used for occupation,
+ *        equipment, and options such as race or physical makeup
  */
 
-/**
- * Configuration
- *
- * Configure these to match your actual table names or vice-versa.
- * RaceTable is optional (e.g. used in rolling Crawling Under A Broken Moon characters)
- * and must be uncommented to use.
- */
-//var RaceTable = 'Races';
-var OccupationTable = 'Occupations';
-var LuckTable = 'Birth-Augur-Lucky-Roll';
-var EquipmentTable = 'Equipment';
-var DefaultAvatar = 'https://s3.amazonaws.com/files.d20.io/images/7165064/VtQt1TimmSc8rxdHH4daxg/med.jpg?1421350799';
+var Fodder = Fodder || {
+    defaultAvatar: "https://s3.amazonaws.com/files.d20.io/images/7165064/VtQt1TimmSc8rxdHH4daxg/med.jpg?1421350799",
+    output: [],
 
-var Fodder = Fodder || {};
+    Listen: function () {
+        on('chat:message', function (msg) {
+            // Exit if not an api command
+            if (msg.type != "api") {
+                return;
+            }
+            if (msg.content.indexOf("!fodder ") != -1) {
+                var input = msg.content.split(" ");
+                if (input[1] == "help") {
+                    Fodder.ShowHelp();
+                } else {
+                    Fodder.SetTables(input[1]);
+                    sendChat('API', "/direct <h6>Generating character</h6>");
+                    Fodder.Generate(msg);
+                    setTimeout(Fodder.PrintSheet, 1500, msg);
+                }
+            } else if (msg.content.indexOf("!fodder") != -1) {
+                Fodder.ShowHelp();
+            }
+        });
+    },
 
-on('chat:message', function(msg) {
-    // Exit if not an api command
-    if (msg.type != "api") {
-        return;
-    }
+    SetTables: function (option) {
+        var defaultTable = {
+            occupation: "Occupations-Core",
+            luck: "Birth-Augur-Lucky-Roll-Core",
+            equipment: "Equipment-Core"
+        };
 
-    if (msg.content.indexOf('!fodder') != -1) {
-        Fodder.Generate(msg);
-    }
-});
+        switch (option) {
+            case "brokenmoon":
+                Fodder.RaceTable = 'Races-CUaBM';
+                Fodder.OccupationTable = 'Occupations-CUaBM';
+                Fodder.LuckTable = defaultTable.luck;
+                Fodder.EquipmentTable = 'Equipment-CUaBM';
+                break;
+            case "crawl":
+                Fodder.OccupationTable = 'Occupations-Crawl';
+                Fodder.LuckTable = defaultTable.luck;
+                Fodder.EquipmentTable = defaultTable.equipment;
+                break;
+            case "core":
+            default:
+                Fodder.OccupationTable = defaultTable.occupation;
+                Fodder.LuckTable = defaultTable.luck;
+                Fodder.EquipmentTable = defaultTable.equipment;
+        }
+    },
 
-Fodder.Generate = function(msg) {
+    PrintSheet: function (msg) {
+        sendChat(msg.who, "/direct <table style='background: #DCD9D5; border-radius: 20px; font-size: 10px;'>" + Fodder.output['name'] +
+            "<tbody>" + Fodder.output['occupation'] + Fodder.output['abilities'] + Fodder.output['hitpoints'] + Fodder.output['luck'] + Fodder.output['weapon'] + Fodder.output['trade'] + Fodder.output['equipment'] + Fodder.output['copper'] +
+            "</tbody></table>");
+    },
+
+    ShowHelp: function () {
+        sendChat("API", "/direct <table style='background: #DCD9D5; border-radius: 20px; font-size: 10px;'>" +
+            "<thead><tr><th>Help</th></tr></thead>" +
+            "<tbody>" +
+            "<tr><td><strong>!fodder</strong><br><strong>!fodder help</strong><br>Show this help screen.</td></tr>" +
+            "<tr><td><strong>!fodder core</strong><br>Use default core DCC tables.</td></tr>" +
+            "<tr><td><strong>!fodder brokenmoon</strong><br>Use Crawling Under A Broken Moon tables, including mutants and robots.</td></tr>" +
+            "<tr><td><strong>!fodder crawl</strong><br>Use Crawl! tables for zero-level character generation, including gnomes and physical characteristics.</td></tr>" +
+            "<tr><td> </td></tr>" +
+            "</td></tr></tbody></table>");
+    },
+
+    Generate: function (msg) {
         var player = msg.who;
-        var name = msg.who + Date.now();
+        var characters = findObjs({
+            _type: "character",
+            controlledby: msg.playerid
+        });
+        var name = msg.who + " #" + (characters.length + 1);
+        Fodder.output['name'] = "<thead><tr><th colspan='2' style='background: #8C8173; padding: 5px;'>" + name + "</th></tr></thead>";
         var character = createObj('character', {
-            avatar: DefaultAvatar,
+            avatar: Fodder.defaultAvatar,
             name: name,
             bio: '',
-            gmnotes: 'Player: '+player+'<br>Generated by script Fodderator.js',
+            gmnotes: 'Player: ' + player + '<br>Generated by script Fodderator.js',
             archived: false,
             inplayerjournals: 'all',
             controlledby: msg.playerid
         });
-        var rollAbility = function() {
-            return randomInteger(6) + randomInteger(6) + randomInteger(6);
-        };
-        var rollHP = function(staminaMod) {
-            return randomInteger(4) + staminaMod;
-        };
-        var rollCoin = function() {
-            return randomInteger(12) + randomInteger(12) + randomInteger(12) + randomInteger(12) + randomInteger(12);
-        };
-        var calcMod = function(ability) {
-            return Math.floor( (0.0009 * ability * ability * ability) + (-0.029 * ability * ability) + (0.6 * ability) +0.41) -4;
-        };
 
-        if (typeof RaceTable != 'undefined') {
-            var rollRace = function() {
-                sendChat("API", "/roll 1t["+RaceTable+"]", function(result) {
-                    var content = JSON.parse(result[0].content);
-                    createObj('attribute', {
-                        name: 'Race',
-                        current: content.rolls[0].results[0].tableItem.name,
-                        _characterid: character.id
-                    });
-                });
-            }
+        if (typeof Fodder.RaceTable != 'undefined') {
+            Fodder.rollRace(character.id);
         }
 
-        if (typeof OccupationTable != 'undefined') {
-            var rollOccupation = function() {
-                sendChat("API", "/roll 1t["+OccupationTable+"]", function(result) {
-                    var content = JSON.parse(result[0].content);
-                    var values = content.rolls[0].results[0].tableItem.name.split(':');
-                    createObj('attribute', {
-                        name: 'Occupation',
-                        current: values[0],
-                        _characterid: character.id
-                    });
-                    if (typeof EquipmentTable != 'undefined') {
-                        rollEquipment(values[1], values[2]);
-                    }
-                });
-            };
-        }
+        // Roll abilities
+        var strength = Fodder.rollAbility();
+        var strengthMod = Fodder.calcMod(strength);
+        var agility = Fodder.rollAbility();
+        var agilityMod = Fodder.calcMod(agility);
+        var stamina = Fodder.rollAbility();
+        var staminaMod = Fodder.calcMod(stamina);
+        var personality = Fodder.rollAbility();
+        var personalityMod = Fodder.calcMod(personality);
+        var intelligence = Fodder.rollAbility();
+        var intelligenceMod = Fodder.calcMod(intelligence);
+        var luck = Fodder.rollAbility();
+        var luckMod = Fodder.calcMod(luck);
+        Fodder.output['abilities'] = "<tr><td style='font-weight: bold; padding: 5px;'>Strength</td><td style='padding: 5px;'>" + strength + ' (' + strengthMod + ')' +
+            "</td></tr><tr><td style='font-weight: bold; padding: 5px;'>Agility</td><td style='padding: 5px;'>" + agility + ' (' + agilityMod + ')' +
+            "</td></tr><tr><td style='font-weight: bold; padding: 5px;'>Stamina</td><td style='padding: 5px;'>" + stamina + ' (' + staminaMod + ')' +
+            "</td></tr><tr><td style='font-weight: bold; padding: 5px;'>Personality</td><td style='padding: 5px;'>" + personality + ' (' + personalityMod + ')' +
+            "</td></tr><tr><td style='font-weight: bold; padding: 5px;'>Intelligence</td><td style='padding: 5px;'>" + intelligence + ' (' + intelligenceMod + ')' +
+            "</td></tr><tr><td style='font-weight: bold; padding: 5px;'>Luck</td><td style='padding: 5px;'>" + luck + ' (' + luckMod + ')' +
+            "</td></tr>";
 
-        if (typeof LuckTable != 'undefined') {
-            var rollLuck = function () {
-                sendChat("API", "/roll 1t[" + LuckTable + "]", function (result) {
-                    var content = JSON.parse(result[0].content);
-                    var values = content.rolls[0].results[0].tableItem.name.split(':');
-                    createObj('attribute', {
-                        name: 'BirthAugur',
-                        current: values[0],
-                        _characterid: character.id
-                    });
-                    createObj('attribute', {
-                        name: 'LuckyRoll',
-                        current: values[1],
-                        _characterid: character.id
-                    });
-                });
-            };
-        }
+        var hp = Fodder.rollHP(staminaMod);
+        Fodder.output['hitpoints'] = "<tr><td style='font-weight: bold; padding: 5px;'>Hit Points</td><td style='padding: 5px;'>" + hp + "</td></tr>";
+        var cp = Fodder.rollCoin();
+        Fodder.output['copper'] = "<tr><td style='font-weight: bold; padding: 5px;'>Copper Pieces</td><td style='padding: 5px;'>" + cp + "</td></tr>";
 
-        if (typeof EquipmentTable != 'undefined') {
-            var rollEquipment = function (item_1, item_2) {
-                sendChat("API", "/roll 1t[" + EquipmentTable + "]", function (result) {
-                    var content = JSON.parse(result[0].content);
-                    var item_3 = content.rolls[0].results[0].tableItem.name;
-                    createObj('attribute', {
-                        name: 'Equipment',
-                        current: item_1 + "\n" + item_2 + "\n" + item_3,
-                        _characterid: character.id
-                    });
-                });
-            };
-        }
-
-        /* Roll abilities */
-        var strength = rollAbility();
-        var agility = rollAbility();
-        var stamina = rollAbility();
-        var personality = rollAbility();
-        var intelligence = rollAbility();
-        var luck = rollAbility();
-
-        var staminaMod = calcMod(stamina);
-        var hp = rollHP(staminaMod);
-        var cp = rollCoin();
-
-        /* Create attributes */
+        // Create attributes
         createObj('attribute', {
             name: 'player_name',
             current: player,
             _characterid: character.id
-        })
+        });
         createObj('attribute', {
             name: 'Name',
             current: name,
@@ -217,15 +214,162 @@ Fodder.Generate = function(msg) {
             _characterid: character.id
         });
 
-        if (typeof LuckTable != 'undefined') {
-            rollLuck();
+        if (typeof Fodder.LuckTable != 'undefined') {
+            Fodder.rollLuck(character.id);
         }
-        if (typeof RaceTable != 'undefined') {
-            rollRace();
+        if (typeof Fodder.RaceTable != 'undefined') {
+            Fodder.rollRace(character.id);
         }
-        if (typeof OccupationTable != 'undefined') {
-            rollOccupation();
+        if (typeof Fodder.OccupationTable != 'undefined') {
+            Fodder.rollOccupation(character.id);
         }
+    },
 
-        sendChat(player, "/me turned it up to 11 and summoned a character named \""+name+"\"!");
+    rollAbility: function () {
+        return randomInteger(6) + randomInteger(6) + randomInteger(6);
+    },
+
+    calcMod: function (ability) {
+        return Math.floor((0.0009 * ability * ability * ability) + (-0.029 * ability * ability) + (0.6 * ability) + 0.41) - 4;
+    },
+
+    rollLuck: function (characterId) {
+        sendChat("API", "/roll 1t[" + Fodder.LuckTable + "]", function (result) {
+            var content = JSON.parse(result[0].content);
+            var values = content.rolls[0].results[0].tableItem.name.split(':');
+            Fodder.output['luck'] = "<tr><td style='font-weight: bold; padding: 5px;'>Birth Augur</td><td style='padding: 5px;'>" + values[0] + "</td></tr><tr><td style='font-weight: bold; padding: 5px;'>Lucky Roll</td><td style='padding: 5px;'>" + values[1] + "</td></tr>";
+            createObj('attribute', {
+                name: 'BirthAugur',
+                current: values[0],
+                _characterid: characterId
+            });
+            createObj('attribute', {
+                name: 'LuckyRoll',
+                current: values[1],
+                _characterid: characterId
+            });
+        });
+    },
+
+    rollHP: function (staminaMod) {
+        var hp = randomInteger(4) + staminaMod;
+        if (hp <= 0) {
+            hp = 1;
+        }
+        return hp;
+    },
+
+    rollRace: function (characterId) {
+        sendChat("API", "/roll 1t[" + Fodder.RaceTable + "]", function (result) {
+            var content = JSON.parse(result[0].content);
+            Fodder.output['race'] = "<tr><td style='font-weight: bold; padding: 5px;'>Race</td><td style='padding: 5px;'>" + content.rolls[0].results[0].tableItem.name + "</td></tr>";
+            createObj('attribute', {
+                name: 'Race',
+                current: content.rolls[0].results[0].tableItem.name,
+                _characterid: characterId
+            });
+        });
+    },
+
+    rollOccupation: function (characterId) {
+        sendChat("API", "/roll 1t[" + Fodder.OccupationTable + "]", function (result) {
+            var content = JSON.parse(result[0].content);
+            var values = content.rolls[0].results[0].tableItem.name.split(':');
+            Fodder.output['occupation'] = "<tr><td style='font-weight: bold; padding: 5px;'>Occupation</td><td style='padding: 5px;'>" + values[0] + "</td></tr>";
+            // Melee format: Melee|Name|Damage Die|Damage Type|Handedness
+            // Ranged format: Ranged|Name|Damage Die|Damage Type|Handedness|Range|Range Type
+            var weapon = values[1].split('|');
+            Fodder.output['weapon'] = "<tr><td style='font-weight: bold; padding: 5px;'>Weapon</td><td style='padding: 5px;'>" + weapon[1] + " (" + weapon[2] + ")</td></tr>";
+            Fodder.output['trade'] = "<tr><td style='font-weight: bold; padding: 5px;'>Trade Good</td><td style='padding: 5px;'>" + values[2] + "</td></tr>";
+
+            createObj('attribute', {
+                name: 'Occupation',
+                current: values[0],
+                _characterid: characterId
+            });
+            if (weapon[0] === 'Melee') {
+                var handedness = 1;
+                if (weapon[4] == 2) {
+                    handedness = 1.1;
+                }
+                createObj('attribute', {
+                    name: 'MeleeWeaponName1',
+                    current: weapon[1],
+                    _characterid: characterId
+                });
+                createObj('attribute', {
+                    name: 'MeleeDmg1',
+                    current: weapon[2],
+                    _characterid: characterId
+                });
+                createObj('attribute', {
+                    name: 'MeleeDmgType1',
+                    current: weapon[3],
+                    _characterid: characterId
+                });
+                createObj('attribute', {
+                    name: 'MeleeAttackWielded1_Zero',
+                    current: handedness,
+                    _characterid: characterId
+                });
+            } else {
+                var ammo = randomInteger(6);
+                var rangedType = '@{DEX}';
+                if (weapon[5] == 'Thrown') {
+                    rangedType = '@{STR}';
+                }
+                createObj('attribute', {
+                    name: "RangedAmmo1",
+                    current: ammo,
+                    _characterid: characterId
+                });
+                createObj('attribute', {
+                    name: 'RangedWeaponName1',
+                    current: weapon[1],
+                    _characterid: characterId
+                });
+                createObj('attribute', {
+                    name: 'RangedDistance1',
+                    current: weapon[4],
+                    _characterid: characterId
+                });
+                createObj('attribute', {
+                    name: 'RangedType1',
+                    current: rangedType,
+                    _characterid: characterId
+                });
+                createObj('attribute', {
+                    name: 'RangedDmg1',
+                    current: weapon[2],
+                    _characterid: characterId
+                });
+            }
+
+            if (typeof Fodder.EquipmentTable != 'undefined') {
+                Fodder.rollEquipment(characterId, values[2]);
+            }
+        });
+    },
+
+    rollEquipment: function (characterId, item_1) {
+        sendChat("API", "/roll 1t[" + Fodder.EquipmentTable + "]", function (result) {
+            var content = JSON.parse(result[0].content);
+            var item_2 = content.rolls[0].results[0].tableItem.name;
+            Fodder.output['equipment'] = "<tr><td style='font-weight: bold; padding: 5px;'>Equipment</td><td style='padding: 5px;'>" + item_2 + "</td></tr>";
+            createObj('attribute', {
+                name: 'Equipment',
+                current: item_1 + "\n" + item_2,
+                _characterid: characterId
+            });
+        });
+    },
+
+    rollCoin: function () {
+        return randomInteger(12) + randomInteger(12) + randomInteger(12) + randomInteger(12) + randomInteger(12);
+    }
+
 };
+
+on("ready", function () {
+    Fodder.Listen();
+});

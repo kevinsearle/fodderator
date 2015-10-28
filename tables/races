@@ -1,9 +1,0 @@
-!import-table --Races --show
-!import-table-item --Races --Human --60 --
-!import-table-item --Races --Dwarf --6 --
-!import-table-item --Races --Elf --5 --
-!import-table-item --Races --Halfling --6 --
-!import-table-item --Races --Mutant --15 --
-!import-table-item --Races --Robot --1 --
-!import-table-item --Races --Morlock --5 --
-!import-table-item --Races --Reptilian --2 --

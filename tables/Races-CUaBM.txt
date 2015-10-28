@@ -1,0 +1,9 @@
+!import-table --Races-CUaBM --hide
+!import-table-item --Races-CUaBM --Human --60 --
+!import-table-item --Races-CUaBM --Dwarf --6 --
+!import-table-item --Races-CUaBM --Elf --5 --
+!import-table-item --Races-CUaBM --Halfling --6 --
+!import-table-item --Races-CUaBM --Mutant --15 --
+!import-table-item --Races-CUaBM --Robot --1 --
+!import-table-item --Races-CUaBM --Morlock --5 --
+!import-table-item --Races-CUaBM --Reptilian --2 --
