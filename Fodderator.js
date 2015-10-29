@@ -63,7 +63,16 @@ var Fodder = Fodder || {
 
     PrintSheet: function (msg) {
         sendChat(msg.who, "/direct <table style='background: #DCD9D5; border-radius: 20px; font-size: 10px;'>" + Fodder.output['name'] +
-            "<tbody>" + Fodder.output['occupation'] + Fodder.output['abilities'] + Fodder.output['hitpoints'] + Fodder.output['luck'] + Fodder.output['weapon'] + Fodder.output['trade'] + Fodder.output['equipment'] + Fodder.output['copper'] +
+            "<tbody>" +
+            Fodder.output['gender'] +
+            Fodder.output['occupation'] +
+            Fodder.output['abilities'] +
+            Fodder.output['hitpoints'] +
+            Fodder.output['luck'] +
+            Fodder.output['weapon'] +
+            Fodder.output['trade'] +
+            Fodder.output['equipment'] +
+            Fodder.output['copper'] +
             "</tbody></table>");
     },
 
@@ -96,6 +105,9 @@ var Fodder = Fodder || {
             inplayerjournals: 'all',
             controlledby: msg.playerid
         });
+
+        var gender = Fodder.rollGender();
+        Fodder.output['gender'] = "<tr><td style='font-weight: bold; padding: 5px;'>Gender</td><td style='padding: 5px;'>" + gender + "</td></tr>";
 
         if (typeof Fodder.RaceTable != 'undefined') {
             Fodder.rollRace(character.id);
@@ -136,6 +148,11 @@ var Fodder = Fodder || {
         createObj('attribute', {
             name: 'Name',
             current: name,
+            _characterid: character.id
+        });
+        createObj('attribute', {
+            name: 'gender',
+            current: gender,
             _characterid: character.id
         });
         createObj('attribute', {
@@ -223,6 +240,9 @@ var Fodder = Fodder || {
         if (typeof Fodder.OccupationTable != 'undefined') {
             Fodder.rollOccupation(character.id);
         }
+
+
+
     },
 
     rollAbility: function () {
@@ -366,6 +386,16 @@ var Fodder = Fodder || {
 
     rollCoin: function () {
         return randomInteger(12) + randomInteger(12) + randomInteger(12) + randomInteger(12) + randomInteger(12);
+    },
+
+    /* Should account for more than male and female... */
+    rollGender: function () {
+      var coinFlip = randomInteger(100);
+      if (coinFlip <= 50) {
+        return "Male";
+      } else {
+        return "Female";
+      }
     }
 
 };
