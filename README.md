@@ -1,6 +1,10 @@
 # Fodderator
 A DCC RPG 0-level funnel character generator API script for use in the Roll20 VTT.
 
+## Dependencies
+
+* [The Aaron's TableExport script](https://github.com/Roll20/roll20-api-scripts/tree/master/TableExport)
+
 ## Usage
 When the script is run, it rolls some dice and rolls on some Rollable Tables (see below) that the Judge provides. You end up with a pre-filled character sheet. The assumption is made that the Judge is using either the official DCC RPG used in Roll20 or a custom character sheet that uses the same field names. If the field names are different, you'll either need to edit the sheet or this script.
 
@@ -25,7 +29,9 @@ Examples:
 It's suggested that a Judge create a macro that the players can then click on or run. You can easily specify your campaign type this way.
 
 ### Rollable Tables
-These are used to randomly select occupations, starting equipment, birth augur and optionally races. Just copy and paste the contents of the files that you want from the *tables* folder into the chat on Roll20. You won't see a message or response from Roll20. At a minimum, the core tables must be entered: Occupations-Core, Birth-Augur-Lucky-Roll-Core, and Equipment-Core.
+These are used to randomly select occupations, starting equipment, birth augur and optionally races.
+
+You must first make sure and install [The Aaron's TableExport script](https://github.com/Roll20/roll20-api-scripts/tree/master/TableExport). Then just copy and paste the contents of the files that you want from the *tables* folder into the chat on Roll20. You won't see a message or response from Roll20 but can check if the import works by looking at the Rollable Tables section of the campaign. You can either copy and past the Global table file or individual files to customize as you see fit. At a minimum, if using individual files the core tables must be entered: Occupations-Core, Birth-Augur-Lucky-Roll-Core, and Equipment-Core.
 
 If a table doesn't exist with the correct name, that part of the character isn't created. For example, if you don't import an equipment table, characters you create with the script won't include results from an equipment roll.
 
