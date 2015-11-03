@@ -9,7 +9,7 @@
  */
 
 var Fodder = Fodder || {
-    version: '0.0.2',
+    version: "0.0.3",
     defaultAvatar: "https://s3.amazonaws.com/files.d20.io/images/7165064/VtQt1TimmSc8rxdHH4daxg/med.jpg?1421350799",
     output: [],
 
