@@ -69,7 +69,7 @@ var Fodder = Fodder || {
             "<tr><td><strong>!fodder core</strong><br>Use default core DCC tables.</td></tr>" +
             "<tr><td><strong>!fodder brokenmoon</strong><br>Use Crawling Under A Broken Moon tables, including mutants and robots.</td></tr>" +
             "<tr><td><strong>!fodder crawl</strong><br>Use Crawl! tables for zero-level character generation, including gnomes and physical characteristics.</td></tr>" +
-            "<tr><td> </td></tr>" +
+            "<tr><td> </td></tr>" +
             "</td></tr></tbody></table>");
     },
 
@@ -388,7 +388,7 @@ var Fodder = Fodder || {
           current: Fodder.occupation,
           _characterid: character.id
       });
-      if (Fodder.attackType === 'Melee') {
+      if (Fodder.weapon.attackType === 'Melee') {
           createObj('attribute', {
               name: 'MeleeWeaponName1',
               current: Fodder.weapon.name,
