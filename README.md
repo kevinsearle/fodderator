@@ -50,3 +50,4 @@ Example of setting a macro up for the core rules:
 1. Players can go to the macro section and select "in bar".
 1. Players then click the macro and give it a name at the prompt.
 1. The character is given a character sheet and now shows up in the Journal!
+
