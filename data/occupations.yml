@@ -1,0 +1,442 @@
+---
+Occupations-Core: &occupations_core
+- race: human
+  occupation: Alchemist
+  starting_weapon: Staff
+  trade_item: Flask of oil
+- race: human
+  occupation: Animal trainer
+  starting_weapon: Club
+  trade_item: Pony
+- race: human
+  occupation: Armorer
+  starting_weapon: Hammer (as club)
+  trade_item: Iron helmet
+- race: human
+  occupation: Astrologer
+  starting_weapon: Dagger
+  trade_item: Spyglass
+- race: human
+  occupation: Barber
+  starting_weapon: Razor (as dagger)
+  trade_item: Scissors
+- race: human
+  occupation: Beadle
+  starting_weapon: Staff
+  trade_item: Holy symbol
+- race: human
+  occupation: Beekeeper
+  starting_weapon: Staff
+  trade_item: Jar of honey
+- race: human
+  occupation: Blacksmith
+  starting_weapon: Hammer (as club)
+  trade_item: Steel tongs
+- race: human
+  occupation: Butcher
+  starting_weapon: Cleaver (as handaxe)
+  trade_item: Side of beef
+- race: human
+  occupation: Caravan guard
+  starting_weapon: Short sword
+  trade_item: Linen (1 yard)
+- race: human
+  occupation: Cheesemaker
+  starting_weapon: Cudgel (as staff)
+  trade_item: Stinky cheese
+- race: human
+  occupation: Cobbler
+  starting_weapon: Awl (as dagger)
+  trade_item: Shoehorn
+- race: human
+  occupation: Confidence artist
+  starting_weapon: Dagger
+  trade_item: Quality cloak
+- race: human
+  occupation: Cooper
+  starting_weapon: Crowbar (as club)
+  trade_item: Barrel
+- race: human
+  occupation: Costermonger
+  starting_weapon: Knife (as dagger)
+  trade_item: Fruit
+- race: human
+  occupation: Cutpurse
+  starting_weapon: Dagger
+  trade_item: Small chest
+- race: human
+  occupation: Ditch digger
+  starting_weapon: Shovel (as staff)
+  trade_item: Fine dirt (1 lb.)
+- race: human
+  occupation: Dock worker
+  starting_weapon: Pole (as staff)
+  trade_item: 1 late RPG book
+- race: dwarf
+  occupation: Dwarven apothecarist
+  starting_weapon: Cudgel (as staff)
+  trade_item: Steel vial
+- race: dwarf
+  occupation: Dwarven blacksmith
+  starting_weapon: Hammer (as club)
+  trade_item: Mithril (1 oz.)
+- race: dwarf
+  occupation: Dwarven chest-maker
+  starting_weapon: Chisel (as dagger)
+  trade_item: Wood (10 lbs.)
+- race: dwarf
+  occupation: Dwarven herder
+  starting_weapon: Staff
+  trade_item: Sow
+- race: dwarf
+  occupation: Dwarven miner
+  starting_weapon: Pick (as club)
+  trade_item: Lantern
+  weight: 2
+- race: dwarf
+  occupation: Dwarven mushroom-farmer
+  starting_weapon: Shovel (as staff)
+  trade_item: Sack
+- race: dwarf
+  occupation: Dwarven rat-catcher
+  starting_weapon: Club
+  trade_item: Net
+- race: dwarf
+  occupation: Dwarven stonemason
+  starting_weapon: Hammer (as club)
+  trade_item: Fine stone (10 lbs.)
+  weight: 2
+- race: elf
+  occupation: Elven artisan
+  starting_weapon: Staff
+  trade_item: Clay (1 lb.)
+- race: elf
+  occupation: Elven barrister
+  starting_weapon: Quill (as dart)
+  trade_item: Book
+- race: elf
+  occupation: Elven chandler
+  starting_weapon: Scissors (as dagger)
+  trade_item: Candles (20)
+- race: elf
+  occupation: Elven falconer
+  starting_weapon: Dagger
+  trade_item: Falcon
+- race: elf
+  occupation: Elven forester
+  starting_weapon: Staff
+  trade_item: Herbs (1 lb.)
+  weight: 2
+- race: elf
+  occupation: Elven glassblower
+  starting_weapon: Hammer (as club)
+  trade_item: Glass beads
+- race: elf
+  occupation: Elven navigator
+  starting_weapon: Shortbow
+  trade_item: Spyglass
+- race: elf
+  occupation: Elven sage
+  starting_weapon: Dagger
+  trade_item: Parchment, quill
+  weight: 2
+- race: human
+  occupation: Farmer
+  starting_weapon: Pitchfork (as spear)
+  # TODO support subtables
+  trade_item: Hen
+  weight: 9
+- race: human
+  occupation: Fortune-teller
+  starting_weapon: Dagger
+  trade_item: Tarot deck
+- race: human
+  occupation: Gambler
+  starting_weapon: Club
+  trade_item: Dice
+- race: human
+  occupation: Gongfarmer
+  starting_weapon: Trowel (as dagger)
+  trade_item: Sack of night soil
+- race: human
+  occupation: Grave digger
+  starting_weapon: Shovel (as staff)
+  trade_item: Trowel
+  weight: 2
+- race: human
+  occupation: Guild beggar
+  starting_weapon: Sling
+  trade_item: Crutches
+  weight: 2
+- race: halfling
+  occupation: Halfling chicken butcher
+  starting_weapon: Handaxe
+  trade_item: Chicken meat (5 lbs.)
+- race: halfling
+  occupation: Halfling dyer
+  starting_weapon: Staff
+  trade_item: Fabric (3 yards)
+  weight: 2
+- race: halfling
+  occupation: Halfling glovemaker
+  starting_weapon: Awl (as dagger)
+  trade_item: Gloves (4 pairs)
+- race: halfling
+  occupation: Halfling gypsy
+  starting_weapon: Sling
+  trade_item: Hex doll
+- race: halfling
+  occupation: Halfling haberdasher
+  starting_weapon: Scissors (as dagger)
+  trade_item: Fine suits (3 sets)
+- race: halfling
+  occupation: Halfling mariner
+  starting_weapon: Knife (as dagger)
+  trade_item: Sailcloth (2 yards)
+- race: halfling
+  occupation: Halfling moneylender
+  starting_weapon: Short sword
+  trade_item: 5 gp, 10 sp, 200 cp
+- race: halfling
+  occupation: Halfling trader
+  starting_weapon: Short sword
+  trade_item: 20 sp
+- race: halfling
+  occupation: Halfling vagrant
+  starting_weapon: Club
+  trade_item: Begging bowl
+- race: human
+  occupation: Healer
+  starting_weapon: Club
+  trade_item: Vial of holy water
+- race: human
+  occupation: Herbalist
+  starting_weapon: Club
+  trade_item: Herbs (1 lb.)
+- race: human
+  occupation: Herder
+  starting_weapon: Staff
+  trade_item: Herding dog
+- race: human
+  occupation: Hunter
+  starting_weapon: Shortbow
+  trade_item: Deer pelt
+  weight: 2
+- race: human
+  occupation: Indentured servant
+  starting_weapon: Staff
+  trade_item: Locket
+- race: human
+  occupation: Jester
+  starting_weapon: Dart
+  trade_item: Silk clothes
+- race: human
+  occupation: Jeweler
+  starting_weapon: Dagger
+  trade_item: Gem worth 20 gp
+- race: human
+  occupation: Locksmith
+  starting_weapon: Dagger
+  trade_item: Fine tools
+- race: human
+  occupation: Mendicant
+  starting_weapon: Club
+  trade_item: Cheese dip
+- race: human
+  occupation: Mercenary
+  starting_weapon: Longsword
+  trade_item: Hide armor (+3 AC, -3 Check, d12 Fumble)
+- race: human
+  occupation: Merchant
+  starting_weapon: Dagger
+  trade_item: 4gp, 14 sp, 27 cp
+- race: human
+  occupation: Miller/baker
+  starting_weapon: Club
+  trade_item: Flour (1 lb.)
+- race: human
+  occupation: Minstrel
+  starting_weapon: Dagger
+  trade_item: Ukulele
+- race: human
+  occupation: Noble
+  starting_weapon: Longsword
+  trade_item: Gold ring worth 10 gp
+- race: human
+  occupation: Orphan
+  starting_weapon: Club
+  trade_item: Rag doll
+- race: human
+  occupation: Ostler
+  starting_weapon: Staff
+  trade_item: Bridle
+- race: human
+  occupation: Outlaw
+  starting_weapon: Short sword
+  trade_item: Leather armor (AC +2, -1 Check, d8 Fumble)
+- race: human
+  occupation: Rope maker
+  starting_weapon: Knife (as dagger)
+  trade_item: Rope (100')
+- race: human
+  occupation: Scribe
+  starting_weapon: Dart
+  trade_item: Parchment (10 sheets)
+- race: human
+  occupation: Shaman
+  starting_weapon: Mace
+  trade_item: Herbs (1 lb.)
+- race: human
+  occupation: Slave
+  starting_weapon: Club
+  trade_item: Strange-looking rock
+- race: human
+  occupation: Smuggler
+  starting_weapon: Sling
+  trade_item: Waterproof sack
+- race: human
+  occupation: Soldier
+  starting_weapon: Spear
+  trade_item: Shield (AC +1, Check -1)
+- race: human
+  occupation: Squire
+  starting_weapon: Longsword
+  trade_item: Steel helmet
+  weight: 2
+- race: human
+  occupation: Tax collector
+  starting_weapon: Longsword
+  trade_item: 100 cp
+- race: human
+  occupation: Trapper
+  starting_weapon: Sling
+  trade_item: Badger pelt
+  weight: 2
+- race: human
+  occupation: Urchin
+  starting_weapon: Stick (as club)
+  trade_item: Begging bowl
+- race: human
+  occupation: Wainwright
+  starting_weapon: Club
+  trade_item: Pushcart
+- race: human
+  occupation: Weaver
+  starting_weapon: Dagger
+  trade_item: Fine suit of clothes
+- race: human
+  occupation: Wizard's apprentice
+  starting_weapon: Dagger
+  trade_item: Black grimoire
+- race: human
+  occupation: Woodcutter
+  starting_weapon: Handaxe
+  trade_item: Bundle of wood
+  weight: 3
+Occupations-Crawl-data: &occupations_crawl_data
+- race: gnome
+  occupation: Gnome gardener
+  starting_weapon: Hand garden fork (as dagger)
+  trade_item: Bag of flower weeds, green thumbs
+- race: gnome
+  occupation: Gnome entertainer
+  starting_weapon: Black wand (as staff)
+  trade_item: Shiny black top hat, white gloves
+- race: gnome
+  occupation: Gnome stroller
+  starting_weapon: Walking stick (as staff)
+  trade_item: Pants with large pockets (holding small rocks, thread)
+Occupations-Crawl:
+ - *occupations_core
+ - *occupations_crawl_data
+Occupations-CUaBM:
+- occupation: Accountant
+  starting_weapon: Big Ledger (as Screwdriver)
+  trade_item: Solar calculator
+- occupation: Armorer
+  starting_weapon: Sledge Hammer
+  trade_item: Retread armor (as studded)
+- occupation: Biker
+  starting_weapon: Length of Chain (as hoe)
+  trade_item: Leather Jacket (as Leather)
+- occupation: Brewer
+  starting_weapon: Bung Hammer (as club)
+  trade_item: 1d3 gallons of booze
+- occupation: Carpenter
+  starting_weapon: Claw Hammer (as hoe)
+  trade_item: Bag of 2d30 nails
+- occupation: Chemist
+  starting_weapon: Vial of mild acid
+  trade_item: 1d3 Molotove cocktails (Era 3)
+- occupation: Cook
+  starting_weapon: Cleaver (as hoe)
+  trade_item: 3d4 trial rations
+- occupation: Electrician
+  starting_weapon: Screwdriver
+  trade_item: Bag of wires and bits
+- occupation: Farmer
+  starting_weapon: Hoe
+  trade_item: 1 Farm animal
+- occupation: Ganger
+  starting_weapon: Slingshot and bag of bearings
+  trade_item: 1 bottle of good booze
+- occupation: Guard
+  starting_weapon: Spear
+  trade_item: Leather armor
+- occupation: Gunsmith
+  starting_weapon: rebuilt revolver
+  trade_item: 3d4 good bullets
+- occupation: Handyman
+  starting_weapon: Large tool (as club)
+  trade_item: Tool belt with 1d3+1 tools
+- occupation: Historian
+  starting_weapon: Heavy book (as screwdriver)
+  trade_item: Trivia (+3 to checks)
+- occupation: Janitor
+  starting_weapon: Large mop (as screwdriver)
+  trade_item: 5 gal bucket and rags
+- occupation: Livestock Rancher
+  starting_weapon: Crook staff (as hoe)
+  trade_item: 1d3 Farm animals
+- occupation: Mechanic
+  starting_weapon: Tire iron (as spear)
+  trade_item: 1d3 gallons of used oil
+- occupation: Medic
+  starting_weapon: Scalpel (as club)
+  trade_item: First aid kit
+- occupation: Merchant
+  starting_weapon: Big Maglite (batteries charged) (as club)
+  trade_item: 1d3 rolls on Equipment table
+- occupation: Miner
+  starting_weapon: Pickaxe (as hoe)
+  trade_item: Filtered mask
+- occupation: Nurse
+  starting_weapon: Scalpel (as club)
+  trade_item: Stethoscope
+- occupation: Peddler
+  starting_weapon: Iron skillet (as hoe)
+  trade_item: 1d3 rolls on Equipment table
+- occupation: Pharmacist
+  starting_weapon: Knife
+  trade_item: 2d3 bottles of drugs
+- occupation: Plumber
+  starting_weapon: Wrench (as club)
+  trade_item: 2d3 copper pipes
+- occupation: Researcher
+  starting_weapon: Heavy book (as screwdriver)
+  trade_item: 1d6 more books
+- occupation: Scavenger
+  starting_weapon: Crowbar (as spear)
+  trade_item: 1d3 rolls on Equipment table
+- occupation: Scientist
+  starting_weapon: Bunsen burner & propane tank (as screwdriver)
+  trade_item: rubber gloves and goggles
+- occupation: Scout
+  starting_weapon: Crossbow and 3d4 bolts
+  trade_item: Compass
+- occupation: Soldier
+  starting_weapon: Bolt action rifle w/bayonet (Bayonet 1d6)
+  trade_item: 2d4 bullets
+- occupation: Wanderer
+  starting_weapon: Big walking stick (as hoe)
+  trade_item: Large backpack

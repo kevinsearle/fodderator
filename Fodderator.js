@@ -135,6 +135,7 @@ var Fodder = Fodder || {
           var values = content.rolls[0].results[0].tableItem.name.split(':');
           Fodder.luckyRoll.birthAugur = values[0];
           Fodder.luckyRoll.detail = values[1];
+          Fodder.luckyRoll.attr = values[2];
       });
     },
 
@@ -161,32 +162,38 @@ var Fodder = Fodder || {
     rollOccupation: function () {
       var occupation = "";
       sendChat("API", "/roll 1t[" + Fodder.OccupationTable + "]", function (result, occupation) {
-          var content = JSON.parse(result[0].content);
-          var values = content.rolls[0].results[0].tableItem.name.split(':');
-          Fodder.occupation = values[0];
-          occupation = values[0];
+        var content = JSON.parse(result[0].content);
+        var values = content.rolls[0].results[0].tableItem.name.split(':');
+        Fodder.occupation = values[0];
+        occupation = values[0];
 
-          var weapon = values[1].split('|');
-          var handedness = 1;
-          if (weapon[4] == 2) {
-              handedness = 1.1;
+        var weapon = values[1].split('|');
+        var weaponType = weapon[0];
+        var weaponName = weapon[1];
+        var weaponDamage = weapon[2];
+        var weaponHands = weapon[3];
+        var weaponRanges = weapon[4];
+        var weaponRangedType = weapon[5];
+
+        Fodder.weapon = {
+          name: weaponName,
+          damage: weaponDamage,
+          attackType: weaponType,
+          handedness: weaponHands
+        };
+        if (weaponType === 'ranged') {
+          Fodder.weapon.ammo = randomInteger(6);
+        } else if (weaponType === 'both') {
+          Fodder.weapon.ammo = 1; // ie. dagger, handaxe
+        }
+        if (weaponType === 'ranged' || weaponType === 'both') {
+          Fodder.weapon.rangedType = 'Missile';
+          if (weaponRangedType === 'Thrown') {
+            Fodder.weapon.rangedType = 'Thrown';
           }
-          Fodder.weapon = {
-            name: weapon[1],
-            damage: weapon[2],
-            damageType: weapon[3],
-            attackType: weapon[0],
-            handedness: handedness
-          };
-          if (weapon[0] === 'Ranged') {
-            Fodder.weapon.ammo = randomInteger(6);
-            Fodder.weapon.rangedType = '@{DEX}';
-            if (weapon[5] == 'Thrown') {
-                Fodder.weapon.rangedType = '@{STR}';
-            }
-            Fodder.weapon.rangedDistance = weapon[4]
-          }
-          Fodder.trade = values[2];
+          Fodder.weapon.rangedDistance = weaponRanges;
+        }
+        Fodder.trade = values[2];
       });
     },
 
@@ -314,43 +321,73 @@ var Fodder = Fodder || {
           _characterid: character.id
       });
       createObj('attribute', {
-          name: 'Strength',
+          name: 'str',
           current: Fodder.strength,
           max: Fodder.strength,
           _characterid: character.id
       });
       createObj('attribute', {
-          name: 'Agility',
+          name: 'agi',
           current: Fodder.agility,
           max: Fodder.agility,
           _characterid: character.id
       });
       createObj('attribute', {
-          name: 'Stamina',
+          name: 'sta',
           current: Fodder.stamina,
           max: Fodder.stamina,
           _characterid: character.id
       });
       createObj('attribute', {
-          name: 'Personality',
+          name: 'per',
           current: Fodder.personality,
           max: Fodder.personality,
           _characterid: character.id
       });
       createObj('attribute', {
-          name: 'Intelligence',
+          name: 'int',
           current: Fodder.intelligence,
           max: Fodder.intelligence,
           _characterid: character.id
       });
       createObj('attribute', {
-          name: 'Luck',
+          name: 'luck',
           current: Fodder.luck,
           max: Fodder.luck,
           _characterid: character.id
       });
       createObj('attribute', {
-          name: 'Luck_Starting',
+          name: 'strMax',
+          current: Fodder.strength,
+          _characterid: character.id
+      });
+      createObj('attribute', {
+          name: 'agiMax',
+          current: Fodder.agility,
+          _characterid: character.id
+      });
+      createObj('attribute', {
+          name: 'staMax',
+          current: Fodder.stamina,
+          _characterid: character.id
+      });
+      createObj('attribute', {
+          name: 'perMax',
+          current: Fodder.personality,
+          _characterid: character.id
+      });
+      createObj('attribute', {
+          name: 'intMax',
+          current: Fodder.intelligence,
+          _characterid: character.id
+      });
+      createObj('attribute', {
+          name: 'luckMax',
+          current: Fodder.luck,
+          _characterid: character.id
+      });
+      createObj('attribute', {
+          name: 'luckStarting',
           current: Fodder.luck,
           max: Fodder.luck,
           _characterid: character.id
@@ -376,6 +413,13 @@ var Fodder = Fodder || {
           current: Fodder.luckyRoll.detail,
           _characterid: character.id
       });
+      if (Fodder.luckyRoll.attr && Fodder.luckyRoll.attr.indexOf("special") == -1) {
+        createObj('attribute', {
+            name: Fodder.luckyRoll.attr,
+            current: "[[@{luckStartingMod}]]",
+            _characterid: character.id
+        });
+      }
       if (typeof Fodder.race != "undefined") {
         createObj('attribute', {
             name: 'Race',
@@ -388,59 +432,118 @@ var Fodder = Fodder || {
           current: Fodder.occupation,
           _characterid: character.id
       });
-      if (Fodder.weapon.attackType === 'Melee') {
+      if (Fodder.weapon.attackType === 'melee' || Fodder.weapon.attackType === 'both') {
+          const rowId = Fodder.generateRowID();
+          const prefix = `repeating_meleeweapon_${rowId}`;
           createObj('attribute', {
-              name: 'MeleeWeaponName1',
+              name: `${prefix}_meleeWeaponName`,
               current: Fodder.weapon.name,
               _characterid: character.id
           });
           createObj('attribute', {
-              name: 'MeleeDmg1',
+              name: `${prefix}_meleeDmg`,
               current: Fodder.weapon.damage,
               _characterid: character.id
           });
           createObj('attribute', {
-              name: 'MeleeDmgType1',
-              current: Fodder.weapon.damageType,
-              _characterid: character.id
-          });
-          createObj('attribute', {
-              name: 'MeleeAttackWielded1_Zero',
+              name: `${prefix}_meleeAttackWielded`,
               current: Fodder.weapon.handedness,
               _characterid: character.id
           });
-      } else {
+          if (Fodder.luckyRoll.attr === "special_zeroWeaponLuckyRoll") {
+            createObj('attribute', {
+                name: `${prefix}_zeroWeaponLuckyRoll`,
+                current: "@{luckStartingMod}",
+                _characterid: character.id
+            });
+          }
+      }
+      if (Fodder.weapon.attackType === 'ranged' || Fodder.weapon.attackType === 'both') {
+          const rowId = Fodder.generateRowID();
+          const prefix = `repeating_rangedweapon_${rowId}`;
           createObj('attribute', {
-              name: "RangedAmmo1",
+              name: `${prefix}_rangedAmmo`,
               current: Fodder.weapon.ammo,
               _characterid: character.id
           });
           createObj('attribute', {
-              name: 'RangedWeaponName1',
+              name: `${prefix}_rangedWeaponName`,
               current: Fodder.weapon.name,
               _characterid: character.id
           });
+          const [distShort, distMed, distLong] = Fodder.weapon.rangedDistance.split('/');
           createObj('attribute', {
-              name: 'RangedDistance1',
-              current: Fodder.weapon.rangedDistance,
+              name: `${prefix}_rangedDistanceShort`,
+              current: distShort,
               _characterid: character.id
           });
           createObj('attribute', {
-              name: 'RangedType1',
+              name: `${prefix}_rangedDistanceMed`,
+              current: distMed,
+              _characterid: character.id
+          });
+          createObj('attribute', {
+              name: `${prefix}_rangedDistanceLong`,
+              current: distLong,
+              _characterid: character.id
+          });
+          createObj('attribute', {
+              name: `${prefix}_rangedWeaponType`,
               current: Fodder.weapon.rangedType,
               _characterid: character.id
           });
           createObj('attribute', {
-              name: 'RangedDmg1',
+              name: `${prefix}_rangedDmg`,
               current: Fodder.weapon.damage,
               _characterid: character.id
           });
+          if (Fodder.luckyRoll.attr === "special_zeroWeaponLuckyRoll") {
+            createObj('attribute', {
+                name: `${prefix}_zeroRangedWeaponLuckyRoll`,
+                current: "@{luckStartingMod}",
+                _characterid: character.id
+            });
+          }
       }
       createObj('attribute', {
           name: 'Equipment',
           current: Fodder.trade + "\n" + Fodder.equipment,
           _characterid: character.id
       });
+    },
+
+    generateUUID: (function() {
+        "use strict";
+
+        var a = 0, b = [];
+        return function() {
+            var c = (new Date()).getTime() + 0, d = c === a;
+            a = c;
+            for (var e = new Array(8), f = 7; 0 <= f; f--) {
+                e[f] = "-0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ_abcdefghijklmnopqrstuvwxyz".charAt(c % 64);
+                c = Math.floor(c / 64);
+            }
+            c = e.join("");
+            if (d) {
+                for (f = 11; 0 <= f && 63 === b[f]; f--) {
+                    b[f] = 0;
+                }
+                b[f]++;
+            } else {
+                for (f = 0; 12 > f; f++) {
+                    b[f] = Math.floor(64 * Math.random());
+                }
+            }
+            for (f = 0; 12 > f; f++){
+                c += "-0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ_abcdefghijklmnopqrstuvwxyz".charAt(b[f]);
+            }
+            return c;
+        };
+    }()),
+
+    generateRowID: function () {
+        "use strict";
+        return Fodder.generateUUID().replace(/_/g, "Z");
     }
 
 };
