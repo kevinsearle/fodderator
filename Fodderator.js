@@ -77,7 +77,6 @@ var Fodder = Fodder || {
         Fodder.id = msg.playerid;
         Fodder.player = msg.who;
         Fodder.name = msg.who + " #" + (findObjs({_type: "character", controlledby: msg.playerid}).length + 1)
-        Fodder.gender = Fodder.rollGender();
         Fodder.strength = Fodder.rollAbility();
         Fodder.strengthMod = Fodder.calcMod(Fodder.strength);
         Fodder.agility = Fodder.rollAbility();
@@ -108,16 +107,6 @@ var Fodder = Fodder || {
         if (typeof outputCallback === "function") {
           setTimeout(outputCallback, 2500, msg, saveCallback);
         }
-    },
-
-    /* Should account for more than male and female? */
-    rollGender: function () {
-      var coinFlip = randomInteger(100);
-      if (coinFlip <= 50) {
-        return "Male";
-      } else {
-        return "Female";
-      }
     },
 
     rollAbility: function () {
@@ -208,7 +197,6 @@ var Fodder = Fodder || {
       var styleLabel = "style='font-weight: bold; padding: 5px;'";
       var styleVal = "style='padding: 5px;'";
       Fodder.output['name'] = "<thead><tr><th colspan='2' style='background: #8C8173; padding: 5px;'>" + Fodder.name + "</th></tr></thead>";
-      Fodder.output['gender'] = "<tr><td " + styleLabel + ">Gender</td><td " + styleVal + ">" + Fodder.gender + "</td></tr>";
       if (Fodder.race != undefined) {
         Fodder.output['race'] = "<tr><td " + styleLabel + ">Race</td><td " + styleVal + ">" + Fodder.race + "</td></tr>";
       } else {
@@ -255,7 +243,6 @@ var Fodder = Fodder || {
 
       sendChat(msg.who, "/direct <table style='background: #DCD9D5; border-radius: 20px; font-size: 10px;'>" + Fodder.output['name'] +
           "<tbody>" +
-          Fodder.output['gender'] +
           Fodder.output['race'] +
           Fodder.output['occupation'] +
           Fodder.output['abilities'] +
@@ -291,11 +278,6 @@ var Fodder = Fodder || {
       createObj('attribute', {
           name: 'Name',
           current: Fodder.name,
-          _characterid: character.id
-      });
-      createObj('attribute', {
-          name: 'gender',
-          current: Fodder.gender,
           _characterid: character.id
       });
       createObj('attribute', {
