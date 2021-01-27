@@ -25,7 +25,7 @@ var Fodder = Fodder || {
                     Fodder.showHelp();
                 } else {
                     Fodder.setTables(input[1]);
-                    sendChat('API', "/direct <h6>Generating character</h6>");
+                    sendChat('API', "/direct <h6>Generating character</h6> (please do not generate another until this one is done!)");
                     Fodder.generate(msg, Fodder.printSheet, Fodder.save);
                 }
             } else if (msg.content.indexOf("!fodder") != -1) {
