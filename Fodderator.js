@@ -260,6 +260,7 @@ var Fodder = Fodder || {
     },
 
     save: function() {
+      var attr;
       var character = createObj("character", {
           avatar: Fodder.defaultAvatar,
           name: Fodder.name,
@@ -308,11 +309,13 @@ var Fodder = Fodder || {
           max: Fodder.strength,
           _characterid: character.id
       });
-      createObj('attribute', {
-          name: 'agi',
-          current: Fodder.agility,
-          max: Fodder.agility,
-          _characterid: character.id
+      attr = createObj('attribute', {
+        name: 'agi',
+        characterid: character.id
+      });
+      attr.setWithWorker({
+        current: Fodder.agility,
+        max: Fodder.agility
       });
       createObj('attribute', {
           name: 'sta',
@@ -368,11 +371,13 @@ var Fodder = Fodder || {
           current: Fodder.luck,
           _characterid: character.id
       });
-      createObj('attribute', {
-          name: 'luckStarting',
-          current: Fodder.luck,
-          max: Fodder.luck,
-          _characterid: character.id
+      attr = createObj('attribute', {
+        name: 'luckStarting',
+        _characterid: character.id
+      });
+      attr.setWithWorker({
+        current: Fodder.luck,
+        max: Fodder.luck
       });
       createObj('attribute', {
           name: 'HP',
@@ -395,11 +400,13 @@ var Fodder = Fodder || {
           current: Fodder.luckyRoll.detail,
           _characterid: character.id
       });
-      if (Fodder.luckyRoll.attr && Fodder.luckyRoll.attr.indexOf("special") == -1) {
-        createObj('attribute', {
-            name: Fodder.luckyRoll.attr,
-            current: "[[@{luckStartingMod}]]",
-            _characterid: character.id
+      if (Fodder.luckyRoll.attr && Fodder.luckyRoll.attr.indexOf("special") === -1) {
+        attr = createObj('attribute', {
+          name: Fodder.luckyRoll.attr,
+          characterid: character.id
+        });
+        attr.setWithWorker({
+          current: Fodder.luckyRoll.attr === 'armorClassLuckyRoll' ? "on" : "[[@{luckStartingMod}]]",
         });
       }
       if (typeof Fodder.race != "undefined") {
