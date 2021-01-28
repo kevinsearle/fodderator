@@ -143,8 +143,7 @@ Occupations-Core: &occupations_core
 - race: human
   occupation: "$subtable-Farmer-Core"
   starting_weapon: Pitchfork (as spear)
-  # TODO support subtables
-  trade_item: Hen
+  trade_item: "$subtable-Farm-Animals-Core"
   weight: 9
 - race: human
   occupation: Fortune-teller

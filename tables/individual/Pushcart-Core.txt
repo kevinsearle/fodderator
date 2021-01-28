@@ -1,0 +1,7 @@
+!import-table --Pushcart-Core --show
+!import-table-item --Pushcart-Core --Pushcart full of tomatoes --1 --
+!import-table-item --Pushcart-Core --Empty pushcart --1 --
+!import-table-item --Pushcart-Core --Pushcart full of straw --1 --
+!import-table-item --Pushcart-Core --Pushcart full of your dead --1 --
+!import-table-item --Pushcart-Core --Pushcart full of dirt --1 --
+!import-table-item --Pushcart-Core --Pushcart full of rocks --1 --

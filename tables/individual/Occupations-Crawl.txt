@@ -20,7 +20,7 @@
 !import-table-item --Occupations-Crawl --Dwarven apothecarist:melee|Cudgel|1d4|1||:Steel vial --1 --
 !import-table-item --Occupations-Crawl --Dwarven blacksmith:melee|Hammer|1d4|1||:Mithril (1 oz.) --1 --
 !import-table-item --Occupations-Crawl --Dwarven chest-maker:both|Chisel|1d4|1|10/20/30|Thrown:Wood (10 lbs.) --1 --
-!import-table-item --Occupations-Crawl --Dwarven herder:melee|Staff|1d4|1||:Sow --1 --
+!import-table-item --Occupations-Crawl --Dwarven herder:melee|Staff|1d4|1||:$subtable-Farm-Animals-Core --1 --
 !import-table-item --Occupations-Crawl --Dwarven miner:melee|Pick|1d4|1||:Lantern --2 --
 !import-table-item --Occupations-Crawl --Dwarven mushroom-farmer:melee|Shovel|1d4|1||:Sack --1 --
 !import-table-item --Occupations-Crawl --Dwarven rat-catcher:melee|Club|1d4|1||:Net --1 --
@@ -33,7 +33,7 @@
 !import-table-item --Occupations-Crawl --Elven glassblower:melee|Hammer|1d4|1||:Glass beads --1 --
 !import-table-item --Occupations-Crawl --Elven navigator:ranged|Shortbow|1d6|2|50/100/150|Normal:Spyglass --1 --
 !import-table-item --Occupations-Crawl --Elven sage:both|Dagger|1d4|1|10/20/30|Thrown:Parchment, quill --2 --
-!import-table-item --Occupations-Crawl --Farmer:melee|Pitchfork|1d8|1||:Hen --9 --
+!import-table-item --Occupations-Crawl --$subtable-Farmer-Core:melee|Pitchfork|1d8|1||:$subtable-Farm-Animals-Core --9 --
 !import-table-item --Occupations-Crawl --Fortune-teller:both|Dagger|1d4|1|10/20/30|Thrown:Tarot deck --1 --
 !import-table-item --Occupations-Crawl --Gambler:melee|Club|1d4|1||:Dice --1 --
 !import-table-item --Occupations-Crawl --Gongfarmer:both|Trowel|1d4|1|10/20/30|Thrown:Sack of night soil --1 --
@@ -50,7 +50,7 @@
 !import-table-item --Occupations-Crawl --Halfling vagrant:melee|Club|1d4|1||:Begging bowl --1 --
 !import-table-item --Occupations-Crawl --Healer:melee|Club|1d4|1||:Vial of holy water --1 --
 !import-table-item --Occupations-Crawl --Herbalist:melee|Club|1d4|1||:Herbs (1 lb.) --1 --
-!import-table-item --Occupations-Crawl --Herder:melee|Staff|1d4|1||:Herding dog --1 --
+!import-table-item --Occupations-Crawl --Herder:melee|Staff|1d4|1||:$subtable-Farm-Animals-Core --1 --
 !import-table-item --Occupations-Crawl --Hunter:ranged|Shortbow|1d6|2|50/100/150|Normal:Deer pelt --2 --
 !import-table-item --Occupations-Crawl --Indentured servant:melee|Staff|1d4|1||:Locket --1 --
 !import-table-item --Occupations-Crawl --Jester:ranged|Dart|1d4|1|20/40/60|Thrown:Silk clothes --1 --
@@ -75,7 +75,7 @@
 !import-table-item --Occupations-Crawl --Tax collector:melee|Longsword|1d8|1||:100 cp --1 --
 !import-table-item --Occupations-Crawl --Trapper:ranged|Sling|1d4|1|40/80/160|Thrown:Badger pelt --2 --
 !import-table-item --Occupations-Crawl --Urchin:melee|Stick|1d4|1||:Begging bowl --1 --
-!import-table-item --Occupations-Crawl --Wainwright:melee|Club|1d4|1||:Pushcart --1 --
+!import-table-item --Occupations-Crawl --Wainwright:melee|Club|1d4|1||:$subtable-Pushcart-Core --1 --
 !import-table-item --Occupations-Crawl --Weaver:both|Dagger|1d4|1|10/20/30|Thrown:Fine suit of clothes --1 --
 !import-table-item --Occupations-Crawl --Wizard's apprentice:both|Dagger|1d4|1|10/20/30|Thrown:Black grimoire --1 --
 !import-table-item --Occupations-Crawl --Woodcutter:both|Handaxe|1d6|1|10/20/30|Thrown:Bundle of wood --3 --

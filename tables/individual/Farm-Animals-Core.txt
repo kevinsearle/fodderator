@@ -1,0 +1,10 @@
+!import-table --Farm-Animals-Core --show
+!import-table-item --Farm-Animals-Core --Hen --1 --
+!import-table-item --Farm-Animals-Core --Sheep --1 --
+!import-table-item --Farm-Animals-Core --Goat --1 --
+!import-table-item --Farm-Animals-Core --Cow --1 --
+!import-table-item --Farm-Animals-Core --Duck --1 --
+!import-table-item --Farm-Animals-Core --Goose --1 --
+!import-table-item --Farm-Animals-Core --Mule --1 --
+!import-table-item --Farm-Animals-Core --Herding Dog --1 --
+!import-table-item --Farm-Animals-Core --Sow --1 --

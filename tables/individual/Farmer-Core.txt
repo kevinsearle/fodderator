@@ -1,0 +1,9 @@
+!import-table --Farmer-Core --show
+!import-table-item --Farmer-Core --Potato Farmer --1 --
+!import-table-item --Farmer-Core --Wheat Farmer --1 --
+!import-table-item --Farmer-Core --Turnip Farmer --1 --
+!import-table-item --Farmer-Core --Corn Farmer --1 --
+!import-table-item --Farmer-Core --Rice Farmer --1 --
+!import-table-item --Farmer-Core --Parsnip Farmer --1 --
+!import-table-item --Farmer-Core --Radish Farmer --1 --
+!import-table-item --Farmer-Core --Rutabega Farmer --1 --
