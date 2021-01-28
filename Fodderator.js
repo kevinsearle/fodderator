@@ -148,41 +148,89 @@ var Fodder = Fodder || {
         });
     },
 
+    resolveOccupation: function(values) {
+      Fodder.occupation = values[0];
+      occupation = values[0];
+
+      var weapon = values[1].split('|');
+      var weaponType = weapon[0];
+      var weaponName = weapon[1];
+      var weaponDamage = weapon[2];
+      var weaponHands = weapon[3];
+      var weaponRanges = weapon[4];
+      var weaponRangedType = weapon[5];
+
+      Fodder.weapon = {
+        name: weaponName,
+        damage: weaponDamage,
+        attackType: weaponType,
+        handedness: weaponHands
+      };
+      if (weaponType === 'ranged') {
+        Fodder.weapon.ammo = randomInteger(6);
+      } else if (weaponType === 'both') {
+        Fodder.weapon.ammo = 1; // ie. dagger, handaxe
+      }
+      if (weaponType === 'ranged' || weaponType === 'both') {
+        Fodder.weapon.rangedType = 'Missile';
+        if (weaponRangedType === 'Thrown') {
+          Fodder.weapon.rangedType = 'Thrown';
+        }
+        Fodder.weapon.rangedDistance = weaponRanges;
+      }
+      Fodder.trade = values[2];
+    },
+
     rollOccupation: function () {
       var occupation = "";
-      sendChat("API", "/roll 1t[" + Fodder.OccupationTable + "]", function (result, occupation) {
+      sendChat("API", "/roll 1t[" + Fodder.OccupationTable + "]", function (result) {
         var content = JSON.parse(result[0].content);
         var values = content.rolls[0].results[0].tableItem.name.split(':');
         Fodder.occupation = values[0];
         occupation = values[0];
 
-        var weapon = values[1].split('|');
-        var weaponType = weapon[0];
-        var weaponName = weapon[1];
-        var weaponDamage = weapon[2];
-        var weaponHands = weapon[3];
-        var weaponRanges = weapon[4];
-        var weaponRangedType = weapon[5];
+        /*
+         * Find all entries that need to be re-evaluated
+         * ie: $subtable-Farmer-Core:melee|Pitchfork|1d8|1||:$subtable-Farm-Animals-Core
+         */
+        var indicesNeedingEval = [];
+        _.each(values, function(value, index) {
+          var subtableRegexp = new RegExp(/^\$subtable-(.*)$/);
 
-        Fodder.weapon = {
-          name: weaponName,
-          damage: weaponDamage,
-          attackType: weaponType,
-          handedness: weaponHands
-        };
-        if (weaponType === 'ranged') {
-          Fodder.weapon.ammo = randomInteger(6);
-        } else if (weaponType === 'both') {
-          Fodder.weapon.ammo = 1; // ie. dagger, handaxe
-        }
-        if (weaponType === 'ranged' || weaponType === 'both') {
-          Fodder.weapon.rangedType = 'Missile';
-          if (weaponRangedType === 'Thrown') {
-            Fodder.weapon.rangedType = 'Thrown';
+          var match = subtableRegexp.exec(values[index]);
+          if (match !== undefined && match !== null) {
+            indicesNeedingEval.push(index);
           }
-          Fodder.weapon.rangedDistance = weaponRanges;
+        });
+
+        /*
+         * Build the command to evaluate the subtables all at once
+         * ie: [[1t[Farmer-Core]]] [[1t[Farm-Animals-Core]]]
+         */
+        var evalString = _.map(indicesNeedingEval, function(index) {
+          var subtableRegexp = new RegExp(/^\$subtable-(.*)$/);
+          var match = subtableRegexp.exec(values[index]);
+          return `[[1t[${match[1]}]]]`;
+        }).join(" ");
+
+        if (evalString) {
+          /*
+           * Evaluate the subtable rolls and replace the values with the results
+           */
+          const command = `/roll ${evalString}`;
+          sendChat("API", command, function(result) {
+            var content = JSON.parse(result[0].content);
+            var rollResults = _.map(result[0].inlinerolls, function(roll) {
+              return roll.results.rolls[0].results[0].tableItem.name;
+            });
+            _.each(indicesNeedingEval, function(valuesIndex, rollIndex) {
+              values[valuesIndex] = rollResults[rollIndex];
+            });
+            Fodder.resolveOccupation(values);
+          });
+        } else {
+          Fodder.resolveOccupation(values);
         }
-        Fodder.trade = values[2];
       });
     },
 
