@@ -10,6 +10,7 @@
 
 var Fodder = Fodder || {
     version: "0.0.3",
+    sheetVersion: "1.5.1", // DCC_Tabbed_Sheet version
     defaultAvatar: "https://s3.amazonaws.com/files.d20.io/images/7165064/VtQt1TimmSc8rxdHH4daxg/med.jpg?1421350799",
     output: [],
 
@@ -308,7 +309,10 @@ var Fodder = Fodder || {
     },
 
     save: function() {
-      var attr;
+      const workerOptions = ["current", "max"];
+      let createObjWithWorker = function(type, options) {
+        return createObj(type, _.omit(options, workerOptions)).setWithWorker(_.pick(options, workerOptions));
+      };
       var character = createObj("character", {
           avatar: Fodder.defaultAvatar,
           name: Fodder.name,
@@ -319,233 +323,237 @@ var Fodder = Fodder || {
           controlledby: Fodder.id
       });
 
-      createObj('attribute', {
+      createObjWithWorker('attribute', {
           name: 'player_name',
           current: Fodder.player,
-          _characterid: character.id
+          characterid: character.id
       });
-      createObj('attribute', {
+      createObjWithWorker('attribute', {
           name: 'Name',
           current: Fodder.name,
-          _characterid: character.id
+          characterid: character.id
       });
-      createObj('attribute', {
+      createObjWithWorker('attribute', {
           name: 'Languages',
           current: 'Common',
-          _characterid: character.id
+          characterid: character.id
       });
-      createObj('attribute', {
+      createObjWithWorker('attribute', {
           name: 'Speed',
           current: 30,
-          _characterid: character.id
+          characterid: character.id
       });
-      createObj('attribute', {
+      createObjWithWorker('attribute', {
           name: 'Level',
           current: '0',
           max: '10',
-          _characterid: character.id
+          characterid: character.id
       });
-      createObj('attribute', {
+      createObjWithWorker('attribute', {
           name: 'XP',
           current: 0,
           max: 10,
-          _characterid: character.id
+          characterid: character.id
       });
-      createObj('attribute', {
+      createObjWithWorker('attribute', {
           name: 'str',
           current: Fodder.strength,
           max: Fodder.strength,
-          _characterid: character.id
+          characterid: character.id
       });
-      attr = createObj('attribute', {
+      createObjWithWorker('attribute', {
         name: 'agi',
+        current: Fodder.agility,
+        max: Fodder.agility,
         characterid: character.id
       });
-      attr.setWithWorker({
-        current: Fodder.agility,
-        max: Fodder.agility
-      });
-      createObj('attribute', {
+      createObjWithWorker('attribute', {
           name: 'sta',
           current: Fodder.stamina,
           max: Fodder.stamina,
-          _characterid: character.id
+          characterid: character.id
       });
-      createObj('attribute', {
+      createObjWithWorker('attribute', {
           name: 'per',
           current: Fodder.personality,
           max: Fodder.personality,
-          _characterid: character.id
+          characterid: character.id
       });
-      createObj('attribute', {
+      createObjWithWorker('attribute', {
           name: 'int',
           current: Fodder.intelligence,
           max: Fodder.intelligence,
-          _characterid: character.id
+          characterid: character.id
       });
-      createObj('attribute', {
+      createObjWithWorker('attribute', {
           name: 'luck',
           current: Fodder.luck,
           max: Fodder.luck,
-          _characterid: character.id
+          characterid: character.id
       });
-      createObj('attribute', {
+      createObjWithWorker('attribute', {
           name: 'strMax',
           current: Fodder.strength,
-          _characterid: character.id
+          characterid: character.id
       });
-      createObj('attribute', {
+      createObjWithWorker('attribute', {
           name: 'agiMax',
           current: Fodder.agility,
-          _characterid: character.id
+          characterid: character.id
       });
-      createObj('attribute', {
+      createObjWithWorker('attribute', {
           name: 'staMax',
           current: Fodder.stamina,
-          _characterid: character.id
+          characterid: character.id
       });
-      createObj('attribute', {
+      createObjWithWorker('attribute', {
           name: 'perMax',
           current: Fodder.personality,
-          _characterid: character.id
+          characterid: character.id
       });
-      createObj('attribute', {
+      createObjWithWorker('attribute', {
           name: 'intMax',
           current: Fodder.intelligence,
-          _characterid: character.id
+          characterid: character.id
       });
-      createObj('attribute', {
+      createObjWithWorker('attribute', {
           name: 'luckMax',
           current: Fodder.luck,
-          _characterid: character.id
+          characterid: character.id
       });
-      attr = createObj('attribute', {
+      createObjWithWorker('attribute', {
         name: 'luckStarting',
-        _characterid: character.id
-      });
-      attr.setWithWorker({
         current: Fodder.luck,
-        max: Fodder.luck
+        max: Fodder.luck,
+        characterid: character.id
       });
-      createObj('attribute', {
+      createObjWithWorker('attribute', {
           name: 'HP',
           current: Fodder.hp,
           max: Fodder.hp,
-          _characterid: character.id
+          characterid: character.id
       });
-      createObj('attribute', {
+      createObjWithWorker('attribute', {
           name: 'CP',
           current: Fodder.cp,
-          _characterid: character.id
+          characterid: character.id
       });
-      createObj('attribute', {
+      createObjWithWorker('attribute', {
           name: 'BirthAugur',
           current: Fodder.luckyRoll.birthAugur,
-          _characterid: character.id
+          characterid: character.id
       });
-      createObj('attribute', {
+      createObjWithWorker('attribute', {
           name: 'LuckyRoll',
           current: Fodder.luckyRoll.detail,
-          _characterid: character.id
+          characterid: character.id
       });
       if (Fodder.luckyRoll.attr && Fodder.luckyRoll.attr.indexOf("special") === -1) {
-        attr = createObj('attribute', {
+        createObjWithWorker('attribute', {
           name: Fodder.luckyRoll.attr,
-          characterid: character.id
-        });
-        attr.setWithWorker({
           current: Fodder.luckyRoll.attr === 'armorClassLuckyRoll' ? "on" : "[[@{luckStartingMod}]]",
+          characterid: character.id
         });
       }
       if (typeof Fodder.race != "undefined") {
-        createObj('attribute', {
+        createObjWithWorker('attribute', {
             name: 'Race',
             current: Fodder.race,
-            _characterid: character.id
+            characterid: character.id
         });
       }
-      createObj('attribute', {
+      createObjWithWorker('attribute', {
           name: 'Occupation',
           current: Fodder.occupation,
-          _characterid: character.id
+          characterid: character.id
       });
       if (Fodder.weapon.attackType === 'melee' || Fodder.weapon.attackType === 'both') {
           const rowId = Fodder.generateRowID();
           const prefix = `repeating_meleeweapon_${rowId}`;
-          createObj('attribute', {
+          createObjWithWorker('attribute', {
               name: `${prefix}_meleeWeaponName`,
               current: Fodder.weapon.name,
-              _characterid: character.id
+              characterid: character.id
           });
-          createObj('attribute', {
+          createObjWithWorker('attribute', {
               name: `${prefix}_meleeDmg`,
               current: Fodder.weapon.damage,
-              _characterid: character.id
+              characterid: character.id
           });
-          createObj('attribute', {
+          createObjWithWorker('attribute', {
               name: `${prefix}_meleeAttackWielded`,
               current: Fodder.weapon.handedness,
-              _characterid: character.id
+              characterid: character.id
           });
           if (Fodder.luckyRoll.attr === "special_zeroWeaponLuckyRoll") {
-            createObj('attribute', {
+            createObjWithWorker('attribute', {
                 name: `${prefix}_zeroWeaponLuckyRoll`,
                 current: "@{luckStartingMod}",
-                _characterid: character.id
+                characterid: character.id
             });
           }
       }
       if (Fodder.weapon.attackType === 'ranged' || Fodder.weapon.attackType === 'both') {
           const rowId = Fodder.generateRowID();
           const prefix = `repeating_rangedweapon_${rowId}`;
-          createObj('attribute', {
+          createObjWithWorker('attribute', {
               name: `${prefix}_rangedAmmo`,
               current: Fodder.weapon.ammo,
-              _characterid: character.id
+              characterid: character.id
           });
-          createObj('attribute', {
+          createObjWithWorker('attribute', {
               name: `${prefix}_rangedWeaponName`,
               current: Fodder.weapon.name,
-              _characterid: character.id
+              characterid: character.id
           });
           const [distShort, distMed, distLong] = Fodder.weapon.rangedDistance.split('/');
-          createObj('attribute', {
+          createObjWithWorker('attribute', {
               name: `${prefix}_rangedDistanceShort`,
               current: distShort,
-              _characterid: character.id
+              characterid: character.id
           });
-          createObj('attribute', {
+          createObjWithWorker('attribute', {
               name: `${prefix}_rangedDistanceMed`,
               current: distMed,
-              _characterid: character.id
+              characterid: character.id
           });
-          createObj('attribute', {
+          createObjWithWorker('attribute', {
               name: `${prefix}_rangedDistanceLong`,
               current: distLong,
-              _characterid: character.id
+              characterid: character.id
           });
-          createObj('attribute', {
-              name: `${prefix}_rangedWeaponType`,
-              current: Fodder.weapon.rangedType,
-              _characterid: character.id
-          });
-          createObj('attribute', {
+          createObjWithWorker('attribute', {
               name: `${prefix}_rangedDmg`,
               current: Fodder.weapon.damage,
-              _characterid: character.id
+              characterid: character.id
           });
           if (Fodder.luckyRoll.attr === "special_zeroWeaponLuckyRoll") {
-            createObj('attribute', {
+            createObjWithWorker('attribute', {
                 name: `${prefix}_zeroRangedWeaponLuckyRoll`,
                 current: "@{luckStartingMod}",
-                _characterid: character.id
+                characterid: character.id
             });
           }
+          createObjWithWorker('attribute', {
+            name: `${prefix}_rangedAttackDice`,
+            current: "d20",
+            characterid: character.id
+          });
+          createObjWithWorker('attribute', {
+            name: `${prefix}_rangedWeaponType`,
+            current: Fodder.weapon.rangedType,
+            characterid: character.id
+          });
       }
-      createObj('attribute', {
+      createObjWithWorker('attribute', {
           name: 'Equipment',
           current: Fodder.trade + "\n" + Fodder.equipment,
-          _characterid: character.id
+          characterid: character.id
+      });
+      createObjWithWorker('attribute', {
+          name: '_charsheetVersion',
+          current: Fodder.sheetVersion,
+          characterid: character.id
       });
     },
 
