@@ -39,6 +39,17 @@ class Fodder
     result
   end
 
+  def build_simple_table(name, theme)
+    result = ""
+    table_name = "#{name}-#{theme}"
+    result += "!import-table --#{table_name} --show\n"
+    entries = YAML.load_file("./data/#{name.downcase.gsub(/-/, '_')}.yml")[table_name].flatten
+    entries.each do |entry|
+      result += "!import-table-item --#{table_name} --#{entry} --1 --\n"
+    end
+    result
+  end
+
   def build_birth_augur_table
     result = ""
     table_name = "Birth-Augur-Lucky-Roll-Core"
@@ -87,6 +98,9 @@ end
 
 fodder = Fodder.new
 
+fodder.write_table("Farmer", "Core", fodder.build_simple_table("Farmer", "Core"))
+fodder.write_table("Farm-Animals", "Core", fodder.build_simple_table("Farm-Animals", "Core"))
+fodder.write_table("Pushcart", "Core", fodder.build_simple_table("Pushcart", "Core"))
 fodder.write_table("Birth-Augur-Lucky-Roll", "Core", fodder.build_birth_augur_table)
 fodder.write_table("Equipment", "Core", fodder.build_equipment_table("Core"))
 fodder.write_table("Equipment", "CUaBM", fodder.build_equipment_table("CUaBM"))

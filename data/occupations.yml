@@ -87,7 +87,7 @@ Occupations-Core: &occupations_core
 - race: dwarf
   occupation: Dwarven herder
   starting_weapon: Staff
-  trade_item: Sow
+  trade_item: "$subtable-Farm-Animals-Core"
 - race: dwarf
   occupation: Dwarven miner
   starting_weapon: Pick (as club)
@@ -141,7 +141,7 @@ Occupations-Core: &occupations_core
   trade_item: Parchment, quill
   weight: 2
 - race: human
-  occupation: Farmer
+  occupation: "$subtable-Farmer-Core"
   starting_weapon: Pitchfork (as spear)
   # TODO support subtables
   trade_item: Hen
@@ -216,7 +216,7 @@ Occupations-Core: &occupations_core
 - race: human
   occupation: Herder
   starting_weapon: Staff
-  trade_item: Herding dog
+  trade_item: "$subtable-Farm-Animals-Core"
 - race: human
   occupation: Hunter
   starting_weapon: Shortbow
@@ -319,7 +319,7 @@ Occupations-Core: &occupations_core
 - race: human
   occupation: Wainwright
   starting_weapon: Club
-  trade_item: Pushcart
+  trade_item: "$subtable-Pushcart-Core"
 - race: human
   occupation: Weaver
   starting_weapon: Dagger
