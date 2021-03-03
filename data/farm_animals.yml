@@ -1,0 +1,11 @@
+---
+Farm-Animals-Core: &farm_animals_core
+- Hen
+- Sheep
+- Goat
+- Cow
+- Duck
+- Goose
+- Mule
+- Herding Dog
+- Sow

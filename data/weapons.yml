@@ -1,0 +1,225 @@
+---
+Weapons-Core:
+- type: melee
+  name: Battleaxe
+  dmg_die: 1d10
+  hands: 2
+- type: melee
+  name: Blackjack
+  dmg_die: 1d3
+  backstab_die: 2d6
+  hands: 1
+  subdual: true
+- type: ranged
+  name: Blowgun
+  dmg_die: 1d3
+  backstab_die: 1d5
+  hands: 1
+  ranges:
+    s: 20
+    m: 40
+    l: 60
+  str_bonus: false
+- type: melee
+  name: Club
+  dmg_die: 1d4
+  hands: 1
+- type: ranged
+  name: Crossbow
+  dmg_die: 1d6
+  hands: 2
+  ranges:
+    s: 80
+    m: 160
+    l: 240
+  str_bonus: false
+- type: both
+  name: Dagger
+  dmg_die: 1d4
+  backstab_die: 1d10
+  hands: 1
+  ranges:
+    s: 10
+    m: 20
+    l: 30
+  str_bonus: true
+- type: ranged
+  name: Dart
+  dmg_die: 1d4
+  hands: 1
+  ranges:
+    s: 20
+    m: 40
+    l: 60
+  str_bonus: true
+- type: melee
+  name: Flail
+  dmg_die: 1d6
+  hands: 1
+- type: melee
+  name: Garrote
+  dmg_die: 1
+  backstab_die: 3d4
+  hands: 1
+- type: both
+  name: Handaxe
+  dmg_die: 1d6
+  hands: 1
+  ranges:
+    s: 10
+    m: 20
+    l: 30
+  str_bonus: true
+- type: ranged
+  name: Javelin
+  dmg_die: 1d6
+  hands: 1
+  ranges:
+    s: 30
+    m: 60
+    l: 90
+  str_bonus: true
+- type: melee
+  name: Lance
+  dmg_die: 1d12
+  hands: 1
+  requires_mount: true
+  double_dmg_on_charge: true
+- type: ranged
+  name: Longbow
+  dmg_die: 1d6
+  hands: 2
+  ranges:
+    s: 70
+    m: 140
+    l: 210
+  str_bonus: false
+- type: melee
+  name: Longsword
+  dmg_die: 1d8
+  hands: 1
+- type: melee
+  name: Mace
+  dmg_die: 1d6
+  hands: 1
+- type: melee
+  name: Polearm
+  dmg_die: 1d10
+  hands: 2
+- type: ranged
+  name: Shortbow
+  dmg_die: 1d6
+  hands: 2
+  ranges:
+    s: 50
+    m: 100
+    l: 150
+  str_bonus: false
+- type: melee
+  name: Short sword
+  dmg_die: 1d6
+  hands: 1
+- type: ranged
+  name: Sling
+  dmg_die: 1d4
+  hands: 1
+  ranges:
+    s: 40
+    m: 80
+    l: 160
+  str_bonus: true
+- type: melee
+  name: Spear
+  dmg_die: 1d8
+  hands: 1
+- type: melee
+  name: Staff
+  dmg_die: 1d4
+  hands: 1
+- type: melee
+  name: Two-handed sword
+  dmg_die: 1d10
+  hands: 2
+- type: melee
+  name: Warhammer
+  dmg_die: 1d8
+  hands: 1
+Weapons-CUaBM:
+- type: melee
+  name: Club
+  dmg_die: 1d4
+  hands: 1
+- type: melee
+  name: Screwdriver
+  dmg_die: 1d3
+  hands: 1
+- type: melee
+  name: Sledge Hammer
+  dmg_die: 1d7
+  hands: 2
+- type: melee
+  name: Length of chain
+  dmg_die: 1d5
+  hands: 1
+- type: melee
+  name: Hoe
+  dmg_die: 1d5
+  hands: 1
+- type: melee
+  name: Spear
+  dmg_die: 1d6
+  hands: 1
+- type: ranged
+  name: Vial of mild acid
+  dmg_die: 1d4
+  hands: 1
+  ranges:
+    s: 10
+    m: 20
+    l: 30
+  str_bonus: false
+- type: ranged
+  name: Slingshot and bag of bearings
+  dmg_die: 1d4
+  hands: 1
+  ranges:
+    s: 40
+    m: 80
+    l: 160
+  str_bonus: false
+- type: ranged
+  name: Rebuilt revolver
+  dmg_die: 1d6
+  hands: 1
+  ranges:
+    s: 50
+    m: 100
+    l: 150
+  str_bonus: false
+- type: both
+  name: Knife
+  dmg_die: 1d3
+  hands: 1
+  ranges:
+    s: 10
+    m: 20
+    l: 30
+  str_bonus: true
+- type: ranged
+  name: Crossbow and 3d4 bolts
+  dmg_die: 1d6
+  hands: 1
+  ranges:
+    s: 80
+    m: 160
+    l: 240
+  str_bonus: false
+- type: ranged
+  name: Bolt action rifle w/bayonet (bayonet 1d6)
+  dmg_die: 1d10
+  hands: 1
+  ranges:
+    s: 120
+    m: 240
+    l: 360
+  str_bonus: false

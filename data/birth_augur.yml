@@ -1,0 +1,91 @@
+Birth-Augur-Lucky-Roll-Core:
+- birth_augur: Harsh winter
+  lucky_roll: All attack rolls
+  attr: allAtkLuckyRoll
+- birth_augur: The Bull
+  lucky_roll: Melee attack rolls
+  attr: meleeAtkLuckyRoll
+- birth_augur: Fortunate Date
+  lucky_roll: Missile fire attack rolls
+  attr: rangedAtkLuckyRoll
+- birth_augur: Raised by wolves
+  lucky_roll: Unarmed attack rolls
+  attr: # TODO
+- birth_augur: Conceived on horseback
+  lucky_roll: Mounted attack rolls
+  attr: # TODO
+- birth_augur: Born on the battlefield
+  lucky_roll: Damage rolls
+  attr: dmgLuckyRoll
+- birth_augur: Path of the bear
+  lucky_roll: Melee damage rolls
+  attr: meleeDmgLuckyRoll
+- birth_augur: Hawkeye
+  lucky_roll: Missile fire damage rolls
+  attr: rangedDmgLuckyRoll
+- birth_augur: Pack hunter
+  lucky_roll: Attack and damage rolls for 0-level starting weapon
+  attr: special_zeroWeaponLuckyRoll
+- birth_augur: Born under the loom
+  lucky_roll: Skill checks (including thief skills)
+  attr: skillChecksLuckyRoll
+- birth_augur: Fox's cunning
+  lucky_roll: Find / disable traps
+  attr: findDisableTrapsLuckyRoll
+- birth_augur: Four-leafed clover
+  lucky_roll: Find secret doors
+  attr: findSecretDoorsLuckyRoll
+- birth_augur: Seventh son
+  lucky_roll: Spell checks
+  attr: spellCastLuckyRoll
+- birth_augur: The raging storm
+  lucky_roll: Spell damage
+  attr: # TODO
+- birth_augur: Righteous heart
+  lucky_roll: Turn unholy checks
+  attr: turnUnholyLuckyRoll
+- birth_augur: Survived the plague
+  lucky_roll: Magical Healing
+  attr: layOnHandsLuckyRoll
+- birth_augur: Lucky sign
+  lucky_roll: Saving throws
+  attr: savingThrowsLuckyRoll
+- birth_augur: Guardian angel
+  lucky_roll: Saving throws to escape traps
+  attr: # TODO
+- birth_augur: Survived a spider bite
+  lucky_roll: Saving throws against poison
+  attr: # TODO
+- birth_augur: Struck by lightning
+  lucky_roll: Reflex saving throws
+  attr: reflexLuckyRoll
+- birth_augur: Lived through famine
+  lucky_roll: Fortitude saving throws
+  attr: fortitudeLuckyRoll
+- birth_augur: Resisted temptation
+  lucky_roll: Willpower saving throws
+  attr: willLuckyRoll
+- birth_augur: Charmed house
+  lucky_roll: Armor class
+  attr: armorClassLuckyRoll
+- birth_augur: Speed of the cobra
+  lucky_roll: Initiative
+  attr: initLuckyRoll
+- birth_augur: Bountiful harvest
+  lucky_roll: Hit points (applies at each level)
+  attr: hpLuckyRoll
+- birth_augur: Warrior's arm
+  lucky_roll: Critical hit tables
+  attr: critLuckyRoll
+- birth_augur: Unholy house
+  lucky_roll: Corruption rolls
+  attr: corruptionLuckyRoll
+- birth_augur: The Broken Star
+  lucky_roll: Fumbles
+  attr: fumbleLuckyRoll
+- birth_augur: Birdsong
+  lucky_roll: Number of languages
+  attr: # TODO
+- birth_augur: Wild child
+  lucky_roll: Speed (each +1 / -1 = +5' / -5' speed)
+  attr: speedLuckyRoll

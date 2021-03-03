@@ -11,15 +11,15 @@
 !import-table-item --Equipment-Core --Hammer, small --1 --
 !import-table-item --Equipment-Core --Holy symbol --1 --
 !import-table-item --Equipment-Core --Holy water, 1 vial --1 --
-!import-table-item --Equipment-Core --Iron spikes (1d3) --1 --
+!import-table-item --Equipment-Core --Iron spike --1 --
 !import-table-item --Equipment-Core --Lantern --1 --
 !import-table-item --Equipment-Core --Mirror, hand-sized --1 --
 !import-table-item --Equipment-Core --Oil, 1 flask --1 --
 !import-table-item --Equipment-Core --Pole, 10' --1 --
-!import-table-item --Equipment-Core --Rations (1d3 days) --1 --
+!import-table-item --Equipment-Core --Rations, 1 day --1 --
 !import-table-item --Equipment-Core --Rope, 50' --1 --
 !import-table-item --Equipment-Core --Sack, large --1 --
 !import-table-item --Equipment-Core --Sack, small --1 --
 !import-table-item --Equipment-Core --Thieves' tools --1 --
-!import-table-item --Equipment-Core --Torch (1d3) --1 --
+!import-table-item --Equipment-Core --Torch --1 --
 !import-table-item --Equipment-Core --Waterskin --1 --

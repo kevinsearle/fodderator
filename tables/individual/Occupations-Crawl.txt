@@ -1,83 +1,84 @@
 !import-table --Occupations-Crawl --show
-!import-table-item --Occupations-Crawl --Alchemist:Melee|Staff|1d4|Blunt|1:Flask of oil --1 --
-!import-table-item --Occupations-Crawl --Animal trainer:Melee|Club|1d4|Blunt|1:Pony --1 --
-!import-table-item --Occupations-Crawl --Armorer:Melee|Hammer|1d4|Blunt|1:Iron helmet --1 --
-!import-table-item --Occupations-Crawl --Astrologer:Melee|Dagger|1d4|Piercing|1:Spyglass --1 --
-!import-table-item --Occupations-Crawl --Barber:Melee|Razor|1d4|Piercing|1:Scissors --1 --
-!import-table-item --Occupations-Crawl --Beadle:Melee|Staff|1d4|Blunt|1:Holy symbol --1 --
-!import-table-item --Occupations-Crawl --Beekeeper:Melee|Staff|1d4|Blunt|1:Jar of honey --1 --
-!import-table-item --Occupations-Crawl --Blacksmith:Melee|Hammer|1d4|Blunt|1:Steel tongs --1 --
-!import-table-item --Occupations-Crawl --Butcher:Melee|Cleaver|1d6|Slashing|1:Side of beef --1 --
-!import-table-item --Occupations-Crawl --Caravan guard:Melee|Short sword|1d6|Slashing|1:Linen (1 yard) --1 --
-!import-table-item --Occupations-Crawl --Cheesemaker:Melee|Cudgel|1d4|Blunt|1:Stinky cheese --1 --
-!import-table-item --Occupations-Crawl --Cobbler:Melee|Awl|1d4|Piercing|1:Shoehorn --1 --
-!import-table-item --Occupations-Crawl --Confidence artist:Melee|Dagger|1d4|Piercing|1:Quality cloak --1 --
-!import-table-item --Occupations-Crawl --Cooper:Melee|Crowbar|1d4|Blunt|1:Barrel --1 --
-!import-table-item --Occupations-Crawl --Costermonger:Melee|Knife|1d4|Piercing|1:Fruit --1 --
-!import-table-item --Occupations-Crawl --Cupurse:Melee|Dagger|1d4|Piercing|1:Small chest --1 --
-!import-table-item --Occupations-Crawl --Ditch digger:Melee|Shovel|1d4|Blunt|1:Fine dirt (1 lb.) --1 --
-!import-table-item --Occupations-Crawl --Dwarven Apothecarist:Melee|Cudgel|1d4|Blunt|1:Steel vial --1 --
-!import-table-item --Occupations-Crawl --Dwarven blacksmith:Melee|Hammer|1d4|Blunt|1:Mithril (1 oz.) --2 --
-!import-table-item --Occupations-Crawl --Dwarven chest-maker:Melee|Chisel|1d4|Piercing|1:Wood (10 lbs.) --1 --
-!import-table-item --Occupations-Crawl --Dwarven herder:Melee|Staff|1d4|Blunt|1:Sow --1 --
-!import-table-item --Occupations-Crawl --Dwarven miner:Melee|Pick|1d4|Piercing|1:Lantern --2 --
-!import-table-item --Occupations-Crawl --Dwarven mushroom farmer:Melee|Shovel|1d4|Blunt|1:Sack --1 --
-!import-table-item --Occupations-Crawl --Dwarven rat-catcher:Melee|Club|1d4|Blunt|1:Net --1 --
-!import-table-item --Occupations-Crawl --Dwarven stonemason:Melee|Hammer|1d4|Blunt|1:Fine stone (10 lbs.) --2 --
-!import-table-item --Occupations-Crawl --Elven artisan:Mele|Staff|1d4|Blunt|1:Clay (1 lb.) --1 --
-!import-table-item --Occupations-Crawl --Elven barrister:Melee|Quill|1d4|Piercing|1:Book --1 --
-!import-table-item --Occupations-Crawl --Elven chandler:Melee|Scissors|1d4|Piercing|1:Candles (20) --1 --
-!import-table-item --Occupations-Crawl --Elven falconer:Melee|Dagger|1d4|Piercing|1:Falcon --1 --
-!import-table-item --Occupations-Crawl --Elven Forester:Melee|Staff|1d4|Blunt|1:Herbs (1 lb.) --2 --
-!import-table-item --Occupations-Crawl --Elven Glassblower:Melee|Hammer|1d4|Blunt|1:Glass beads --1 --
-!import-table-item --Occupations-Crawl --Elven navigator:Ranged|Short bow|1d6|Piercing|2|50/100/150|Normal:Spyglass --1 --
-!import-table-item --Occupations-Crawl --Elven sage:Melee|Dagger|1d4|Piercing|1:Parchment, quill --2 --
-!import-table-item --Occupations-Crawl --Farmer:Melee|Pitchfork|1d8|Piercing|1:Hen --8 --
-!import-table-item --Occupations-Crawl --Fortune-teller:Melee|Dagger|1d4|Piercing|1:Tarot deck --1 --
-!import-table-item --Occupations-Crawl --Gambler:Melee|Club|1d4|Blunt|1:Dice --1 --
-!import-table-item --Occupations-Crawl --Gongfarmer:Melee|Trowel|1d4|Slashing|1:Sack of night soil --1 --
-!import-table-item --Occupations-Crawl --Grave digger:Melee|Shovel|1d8|Blunt|1:Trowel --2 --
-!import-table-item --Occupations-Crawl --Guild beggar:Ranged|Sling|1d4|Blunt|1|40/80/160|Thrown:Crutches --2 --
-!import-table-item --Occupations-Crawl --Halfling chicken butcher:Melee|Hand axe|1d6|Slashing|1:Chicken meat (5 lbs.) --1 --
-!import-table-item --Occupations-Crawl --Halfling dyer:Melee|Staff|1d4|Blunt|1:Fabric (3 yards) --2 --
-!import-table-item --Occupations-Crawl --Halfling glovemaker:Melee|Awl|1d4|Piercing|1:Gloves (4 pairs) --1 --
-!import-table-item --Occupations-Crawl --Halfling gypsy:Ranged|Sling|1d4|1|40/80/160|Thrown:Hex doll --1 --
-!import-table-item --Occupations-Crawl --Halfling haberdasher:Melee|Scissors|1d4|Piercing|1:Fine suits (3 sets) --1 --
-!import-table-item --Occupations-Crawl --Halfling mariner:Melee|Knife|1d4|Piercing|1:Sailcloth (2 yards) --1 --
-!import-table-item --Occupations-Crawl --Halfling moneylender:Melee|Short sword|1d6|Slashing|1:5 gp, 10 sp, 200 cp --1 --
-!import-table-item --Occupations-Crawl --Halfling trader:Melee|Short sword|1d6|Slashing|1:20 sp --1 --
-!import-table-item --Occupations-Crawl --Halfling vagrant:Melee|Club|1d6|Blunt|1:Begging bowl --1 --
-!import-table-item --Occupations-Crawl --Healer:Melee|Club|1d4|Blunt|1:Vial of holy water --1 --
-!import-table-item --Occupations-Crawl --Herbalist:Melee|Club|1d4|Blunt|1:Herbs (1 lb.) --1 --
-!import-table-item --Occupations-Crawl --Herder:Melee|Staff|1d8|Blunt|1:Herding dog --1 --
-!import-table-item --Occupations-Crawl --Hunter:Ranged|Short bow|1d6|Piercing|50/100/150|Normal:Deer pelt --2 --
-!import-table-item --Occupations-Crawl --Indentured servant:Melee|Staff|1d8|Blunt|1:Locket --1 --
-!import-table-item --Occupations-Crawl --Jester:Ranged|Dart|1d4|Piercing|1|20/40/60|Thrown:Silk clothes --1 --
-!import-table-item --Occupations-Crawl --Jeweler:Melee|Dagger|1d4|Piercing|1:Gem worth 20 gp --1 --
-!import-table-item --Occupations-Crawl --Locksmith:Melee|Dagger|1d4|Piercing|1:Fine tools --1 --
-!import-table-item --Occupations-Crawl --Mendicant:Melee|Club|1d4|Blunt|1:Cheese dip --1 --
-!import-table-item --Occupations-Crawl --Mercenary:Melee|Longsword|1d8|Slashing|1:Hide armor (+3 AC, -3 Check, d12 Fumble) --1 --
-!import-table-item --Occupations-Crawl --Merchant:Melee|Dagger|1d4|Piercing|1:4gp, 14 sp, 27 cp --1 --
-!import-table-item --Occupations-Crawl --Miller/baker:Melee|Club|1d4|Blunt|1:Flour (1 lb.) --1 --
-!import-table-item --Occupations-Crawl --Minstrel:Melee|Dagger|1d4|Piercing|1:Ukulele --1 --
-!import-table-item --Occupations-Crawl --Noble:Melee|Longsword|1d8|Slashing|1:Gold ring worth 10 gp --1 --
-!import-table-item --Occupations-Crawl --Orphan:Melee|Club|1d4|Blunt|1:Rag doll --1 --
-!import-table-item --Occupations-Crawl --Ostler:Melee|Staff|1d4|Blunt|1:Bridle --1 --
-!import-table-item --Occupations-Crawl --Outlaw:Melee|Short sword|1d6|Slashing|1:Leather armor (AC +2, -1 Check, d8 Fumble) --1 --
-!import-table-item --Occupations-Crawl --Rope maker:Melee|Knife|1d4|Piercing|1:Rope (100') --1 --
-!import-table-item --Occupations-Crawl --Scribe:Ranged|Dart|1d4|Piercing|1|20/40/60|Thrown:Parchment (10 sheets) --1 --
-!import-table-item --Occupations-Crawl --Shaman:Melee|Mace|1d6|Blunt|1:Herbs (1 lb.) --1 --
-!import-table-item --Occupations-Crawl --Slave:Melee|Club|1d4|Blunt|1:Strange-looking rock --1 --
-!import-table-item --Occupations-Crawl --Smuggler:Ranged|Sling|1d4|Blunt|40/80/160|Thrown:Waterproof sack --1 --
-!import-table-item --Occupations-Crawl --Soldier:Melee|Spear|1d8|Piercing|1:Shield (AC +1, Check -1) --1 --
-!import-table-item --Occupations-Crawl --Squire:Melee|Longsword|1d8|Slashing|1:Steel helmet --2 --
-!import-table-item --Occupations-Crawl --Tax collector:Melee|Longsword|1d8|Slashing|1:100 cp --1 --
-!import-table-item --Occupations-Crawl --Trapper:Ranged|Sling|1d4|Blunt|1|40/80/160|Thrown:Badger pelt --2 --
-!import-table-item --Occupations-Crawl --Urchin:Melee|Stick|1d4|Blunt|1:Begging bowl --1 --
-!import-table-item --Occupations-Crawl --Wainwright:Melee|Club|1d4|Blunt|1:Pushcart --1 --
-!import-table-item --Occupations-Crawl --Weaver:Melee|Dagger|1d4|Piercing|1:Fine suit of clothes --1 --
-!import-table-item --Occupations-Crawl --Wizard's apprentice:Melee|Dagger|1d4|Piercing|1:Black grimoire --1 --
-!import-table-item --Occupations-Crawl --Woodcutter:Melee|Handaxe|1d6|Slashing|1:Bundle of wood --2 --
-!import-table-item --Occupations-Crawl --Gnome gardener:Melee|Hand garden fork|1d4|Piercing|1:Bag of flower weeds, green thumbs --1 --
-!import-table-item --Occupations-Crawl --Gnome entertainer:Melee|Black wand||1d4|Blunt|1:Shiny black top hat, white gloves --1 --
-!import-table-item --Occupations-Crawl --Gnome stroller:Melee|Walking stick|1d4|Blunt|1:Pants with large pockets (holding small rocks, thread) --1 --
+!import-table-item --Occupations-Crawl --Alchemist:melee|Staff|1d4|1||:Flask of oil --1 --
+!import-table-item --Occupations-Crawl --Animal trainer:melee|Club|1d4|1||:Pony --1 --
+!import-table-item --Occupations-Crawl --Armorer:melee|Hammer|1d4|1||:Iron helmet --1 --
+!import-table-item --Occupations-Crawl --Astrologer:both|Dagger|1d4|1|10/20/30|Thrown:Spyglass --1 --
+!import-table-item --Occupations-Crawl --Barber:both|Razor|1d4|1|10/20/30|Thrown:Scissors --1 --
+!import-table-item --Occupations-Crawl --Beadle:melee|Staff|1d4|1||:Holy symbol --1 --
+!import-table-item --Occupations-Crawl --Beekeeper:melee|Staff|1d4|1||:Jar of honey --1 --
+!import-table-item --Occupations-Crawl --Blacksmith:melee|Hammer|1d4|1||:Steel tongs --1 --
+!import-table-item --Occupations-Crawl --Butcher:both|Cleaver|1d6|1|10/20/30|Thrown:Side of beef --1 --
+!import-table-item --Occupations-Crawl --Caravan guard:melee|Short sword|1d6|1||:Linen (1 yard) --1 --
+!import-table-item --Occupations-Crawl --Cheesemaker:melee|Cudgel|1d4|1||:Stinky cheese --1 --
+!import-table-item --Occupations-Crawl --Cobbler:both|Awl|1d4|1|10/20/30|Thrown:Shoehorn --1 --
+!import-table-item --Occupations-Crawl --Confidence artist:both|Dagger|1d4|1|10/20/30|Thrown:Quality cloak --1 --
+!import-table-item --Occupations-Crawl --Cooper:melee|Crowbar|1d4|1||:Barrel --1 --
+!import-table-item --Occupations-Crawl --Costermonger:both|Knife|1d4|1|10/20/30|Thrown:Fruit --1 --
+!import-table-item --Occupations-Crawl --Cutpurse:both|Dagger|1d4|1|10/20/30|Thrown:Small chest --1 --
+!import-table-item --Occupations-Crawl --Ditch digger:melee|Shovel|1d4|1||:Fine dirt (1 lb.) --1 --
+!import-table-item --Occupations-Crawl --Dock worker:melee|Pole|1d4|1||:1 late RPG book --1 --
+!import-table-item --Occupations-Crawl --Dwarven apothecarist:melee|Cudgel|1d4|1||:Steel vial --1 --
+!import-table-item --Occupations-Crawl --Dwarven blacksmith:melee|Hammer|1d4|1||:Mithril (1 oz.) --1 --
+!import-table-item --Occupations-Crawl --Dwarven chest-maker:both|Chisel|1d4|1|10/20/30|Thrown:Wood (10 lbs.) --1 --
+!import-table-item --Occupations-Crawl --Dwarven herder:melee|Staff|1d4|1||:$subtable-Farm-Animals-Core --1 --
+!import-table-item --Occupations-Crawl --Dwarven miner:melee|Pick|1d4|1||:Lantern --2 --
+!import-table-item --Occupations-Crawl --Dwarven mushroom-farmer:melee|Shovel|1d4|1||:Sack --1 --
+!import-table-item --Occupations-Crawl --Dwarven rat-catcher:melee|Club|1d4|1||:Net --1 --
+!import-table-item --Occupations-Crawl --Dwarven stonemason:melee|Hammer|1d4|1||:Fine stone (10 lbs.) --2 --
+!import-table-item --Occupations-Crawl --Elven artisan:melee|Staff|1d4|1||:Clay (1 lb.) --1 --
+!import-table-item --Occupations-Crawl --Elven barrister:ranged|Quill|1d4|1|20/40/60|Thrown:Book --1 --
+!import-table-item --Occupations-Crawl --Elven chandler:both|Scissors|1d4|1|10/20/30|Thrown:Candles (20) --1 --
+!import-table-item --Occupations-Crawl --Elven falconer:both|Dagger|1d4|1|10/20/30|Thrown:Falcon --1 --
+!import-table-item --Occupations-Crawl --Elven forester:melee|Staff|1d4|1||:Herbs (1 lb.) --2 --
+!import-table-item --Occupations-Crawl --Elven glassblower:melee|Hammer|1d4|1||:Glass beads --1 --
+!import-table-item --Occupations-Crawl --Elven navigator:ranged|Shortbow|1d6|2|50/100/150|Normal:Spyglass --1 --
+!import-table-item --Occupations-Crawl --Elven sage:both|Dagger|1d4|1|10/20/30|Thrown:Parchment, quill --2 --
+!import-table-item --Occupations-Crawl --$subtable-Farmer-Core:melee|Pitchfork|1d8|1||:$subtable-Farm-Animals-Core --9 --
+!import-table-item --Occupations-Crawl --Fortune-teller:both|Dagger|1d4|1|10/20/30|Thrown:Tarot deck --1 --
+!import-table-item --Occupations-Crawl --Gambler:melee|Club|1d4|1||:Dice --1 --
+!import-table-item --Occupations-Crawl --Gongfarmer:both|Trowel|1d4|1|10/20/30|Thrown:Sack of night soil --1 --
+!import-table-item --Occupations-Crawl --Grave digger:melee|Shovel|1d4|1||:Trowel --2 --
+!import-table-item --Occupations-Crawl --Guild beggar:ranged|Sling|1d4|1|40/80/160|Thrown:Crutches --2 --
+!import-table-item --Occupations-Crawl --Halfling chicken butcher:both|Handaxe|1d6|1|10/20/30|Thrown:Chicken meat (5 lbs.) --1 --
+!import-table-item --Occupations-Crawl --Halfling dyer:melee|Staff|1d4|1||:Fabric (3 yards) --2 --
+!import-table-item --Occupations-Crawl --Halfling glovemaker:both|Awl|1d4|1|10/20/30|Thrown:Gloves (4 pairs) --1 --
+!import-table-item --Occupations-Crawl --Halfling gypsy:ranged|Sling|1d4|1|40/80/160|Thrown:Hex doll --1 --
+!import-table-item --Occupations-Crawl --Halfling haberdasher:both|Scissors|1d4|1|10/20/30|Thrown:Fine suits (3 sets) --1 --
+!import-table-item --Occupations-Crawl --Halfling mariner:both|Knife|1d4|1|10/20/30|Thrown:Sailcloth (2 yards) --1 --
+!import-table-item --Occupations-Crawl --Halfling moneylender:melee|Short sword|1d6|1||:5 gp, 10 sp, 200 cp --1 --
+!import-table-item --Occupations-Crawl --Halfling trader:melee|Short sword|1d6|1||:20 sp --1 --
+!import-table-item --Occupations-Crawl --Halfling vagrant:melee|Club|1d4|1||:Begging bowl --1 --
+!import-table-item --Occupations-Crawl --Healer:melee|Club|1d4|1||:Vial of holy water --1 --
+!import-table-item --Occupations-Crawl --Herbalist:melee|Club|1d4|1||:Herbs (1 lb.) --1 --
+!import-table-item --Occupations-Crawl --Herder:melee|Staff|1d4|1||:$subtable-Farm-Animals-Core --1 --
+!import-table-item --Occupations-Crawl --Hunter:ranged|Shortbow|1d6|2|50/100/150|Normal:Deer pelt --2 --
+!import-table-item --Occupations-Crawl --Indentured servant:melee|Staff|1d4|1||:Locket --1 --
+!import-table-item --Occupations-Crawl --Jester:ranged|Dart|1d4|1|20/40/60|Thrown:Silk clothes --1 --
+!import-table-item --Occupations-Crawl --Jeweler:both|Dagger|1d4|1|10/20/30|Thrown:Gem worth 20 gp --1 --
+!import-table-item --Occupations-Crawl --Locksmith:both|Dagger|1d4|1|10/20/30|Thrown:Fine tools --1 --
+!import-table-item --Occupations-Crawl --Mendicant:melee|Club|1d4|1||:Cheese dip --1 --
+!import-table-item --Occupations-Crawl --Mercenary:melee|Longsword|1d8|1||:Hide armor (+3 AC, -3 Check, d12 Fumble) --1 --
+!import-table-item --Occupations-Crawl --Merchant:both|Dagger|1d4|1|10/20/30|Thrown:4gp, 14 sp, 27 cp --1 --
+!import-table-item --Occupations-Crawl --Miller/baker:melee|Club|1d4|1||:Flour (1 lb.) --1 --
+!import-table-item --Occupations-Crawl --Minstrel:both|Dagger|1d4|1|10/20/30|Thrown:Ukulele --1 --
+!import-table-item --Occupations-Crawl --Noble:melee|Longsword|1d8|1||:Gold ring worth 10 gp --1 --
+!import-table-item --Occupations-Crawl --Orphan:melee|Club|1d4|1||:Rag doll --1 --
+!import-table-item --Occupations-Crawl --Ostler:melee|Staff|1d4|1||:Bridle --1 --
+!import-table-item --Occupations-Crawl --Outlaw:melee|Short sword|1d6|1||:Leather armor (AC +2, -1 Check, d8 Fumble) --1 --
+!import-table-item --Occupations-Crawl --Rope maker:both|Knife|1d4|1|10/20/30|Thrown:Rope (100') --1 --
+!import-table-item --Occupations-Crawl --Scribe:ranged|Dart|1d4|1|20/40/60|Thrown:Parchment (10 sheets) --1 --
+!import-table-item --Occupations-Crawl --Shaman:melee|Mace|1d6|1||:Herbs (1 lb.) --1 --
+!import-table-item --Occupations-Crawl --Slave:melee|Club|1d4|1||:Strange-looking rock --1 --
+!import-table-item --Occupations-Crawl --Smuggler:ranged|Sling|1d4|1|40/80/160|Thrown:Waterproof sack --1 --
+!import-table-item --Occupations-Crawl --Soldier:melee|Spear|1d8|1||:Shield (AC +1, Check -1) --1 --
+!import-table-item --Occupations-Crawl --Squire:melee|Longsword|1d8|1||:Steel helmet --2 --
+!import-table-item --Occupations-Crawl --Tax collector:melee|Longsword|1d8|1||:100 cp --1 --
+!import-table-item --Occupations-Crawl --Trapper:ranged|Sling|1d4|1|40/80/160|Thrown:Badger pelt --2 --
+!import-table-item --Occupations-Crawl --Urchin:melee|Stick|1d4|1||:Begging bowl --1 --
+!import-table-item --Occupations-Crawl --Wainwright:melee|Club|1d4|1||:$subtable-Pushcart-Core --1 --
+!import-table-item --Occupations-Crawl --Weaver:both|Dagger|1d4|1|10/20/30|Thrown:Fine suit of clothes --1 --
+!import-table-item --Occupations-Crawl --Wizard's apprentice:both|Dagger|1d4|1|10/20/30|Thrown:Black grimoire --1 --
+!import-table-item --Occupations-Crawl --Woodcutter:both|Handaxe|1d6|1|10/20/30|Thrown:Bundle of wood --3 --
+!import-table-item --Occupations-Crawl --Gnome gardener:both|Hand garden fork|1d4|1|10/20/30|Thrown:Bag of flower weeds, green thumbs --1 --
+!import-table-item --Occupations-Crawl --Gnome entertainer:melee|Black wand|1d4|1||:Shiny black top hat, white gloves --1 --
+!import-table-item --Occupations-Crawl --Gnome stroller:melee|Walking stick|1d4|1||:Pants with large pockets (holding small rocks, thread) --1 --

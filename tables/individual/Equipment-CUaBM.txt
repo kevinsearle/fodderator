@@ -1,4 +1,4 @@
-!import-table --Equipment-CUaBM --hide
+!import-table --Equipment-CUaBM --show
 !import-table-item --Equipment-CUaBM --3 Plasticware Containers --1 --
 !import-table-item --Equipment-CUaBM --4 Firestarter Bricks --1 --
 !import-table-item --Equipment-CUaBM --20 Resealable Plastic Bags --1 --
@@ -32,7 +32,7 @@
 !import-table-item --Equipment-CUaBM --Metal Tongs --1 --
 !import-table-item --Equipment-CUaBM --Mirror, Hand-sized --1 --
 !import-table-item --Equipment-CUaBM --Nylon Rope, 50' --1 --
-!import-table-item --Equipment-CUaBM --Oil, 1 flask* --1 --
+!import-table-item --Equipment-CUaBM --Oil, 1 flask --1 --
 !import-table-item --Equipment-CUaBM --Pocket Fisherman --1 --
 !import-table-item --Equipment-CUaBM --Poker Set with Chips --1 --
 !import-table-item --Equipment-CUaBM --Pole, 10' --1 --
